@@ -22,6 +22,16 @@ class Tests(unittest.TestCase):
         self.assertEqual(eligibility("Remote", "We have an India office. Backend Engineer."), "unknown")
         self.assertEqual(eligibility("Remote", "US only. Backend Engineer."), "excluded")
         self.assertEqual(eligibility("Remote", "Worldwide remote except India."), "excluded")
+    def test_eligibility_does_not_promote_country_roles_from_boilerplate(self):
+        from engine import eligibility
+        self.assertEqual(eligibility("USA", "We are a worldwide company. Python role."), "unknown")
+        self.assertEqual(eligibility("Spain", "Work from anywhere. We are hiring globally."), "unknown")
+        self.assertEqual(eligibility("APAC", "This role is open to India-based candidates."), "eligible_signal")
+        self.assertEqual(eligibility("Remote", "Remote worldwide. Applicants from any country."), "eligible_signal")
+        from engine import eligibility_evidence
+        result, evidence = eligibility_evidence("USA", "100% remote.", title="Senior Engineer (USA Only)")
+        self.assertEqual(result, "excluded")
+        self.assertTrue(any(item["source"] == "title" for item in evidence))
     def test_ashby(self):
         self.assertEqual(normalize("ashby","demo",{"jobs":[{"title":"Hidden","isListed":False}]}),[])
     def test_slug(self):

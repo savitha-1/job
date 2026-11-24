@@ -1,0 +1,3752 @@
+{
+  "observed_at": "2026-11-24T18:12:29.334129+00:00",
+  "elapsed_seconds": 17.008,
+  "source_results": {
+    "arbeitnow_de": {
+      "rows_received": 300,
+      "relevant_current_roles": 40,
+      "distinct_employers": 32,
+      "india_eligibility_signals": 0,
+      "direct_application_urls": 0,
+      "elapsed_seconds": 0.965
+    },
+    "arbeitnow_uk": {
+      "rows_received": 100,
+      "relevant_current_roles": 12,
+      "distinct_employers": 12,
+      "india_eligibility_signals": 0,
+      "direct_application_urls": 0,
+      "elapsed_seconds": 2.212
+    },
+    "remoteok": {
+      "rows_received": 100,
+      "relevant_current_roles": 19,
+      "distinct_employers": 10,
+      "india_eligibility_signals": 0,
+      "direct_application_urls": 0,
+      "elapsed_seconds": 2.258
+    },
+    "jobicy": {
+      "rows_received": 100,
+      "relevant_current_roles": 46,
+      "distinct_employers": 32,
+      "india_eligibility_signals": 1,
+      "direct_application_urls": 0,
+      "elapsed_seconds": 1.747
+    },
+    "gharchive_live": {
+      "hour_utc": "2026-11-24T15:00:00+00:00",
+      "events_read": 3013,
+      "activity_company_leads": 2590,
+      "organization_lookups_attempted": 12,
+      "organization_profiles_resolved": 0,
+      "not_organization_or_not_found": 0,
+      "lookup_errors": 12,
+      "employer_verified": 0,
+      "vacancies_verified": 0
+    }
+  },
+  "errors": [],
+  "descriptive_comparison": {
+    "sample_size": 111,
+    "top_20_field_weighted": {
+      "rows": 20,
+      "distinct_employer_names": 18,
+      "india_eligibility_text_signals": 1,
+      "official_apply_urls": 0
+    },
+    "top_20_ordinary_keyword": {
+      "rows": 20,
+      "distinct_employer_names": 18,
+      "india_eligibility_text_signals": 1,
+      "official_apply_urls": 0
+    },
+    "human_labeled_ground_truth": 0,
+    "interpretation": "Descriptive reranking on the same live feed sample; eligibility labels are heuristic and this is not a precision or accuracy estimate."
+  },
+  "totals": {
+    "source_observations": 117,
+    "unique_provider_listings": 111,
+    "distinct_employer_names": 80,
+    "provider_listings_observed": 111,
+    "official_employer_application_urls": 0,
+    "india_eligibility_signals": 1,
+    "unknown_eligibility": 92,
+    "excluded": 18,
+    "ranked_investigation_listings": 93,
+    "confirmed_submissions": 0,
+    "resolved_unverified_github_organization_leads": 0
+  },
+  "opportunities": [
+    {
+      "company": "WIN Home Inspection",
+      "official_website": null,
+      "title": "Software Engineer- Agentic AI & Integrations",
+      "source_listing_url": "https://jobicy.com/jobs/164107-software-engineer-agentic-ai-integrations",
+      "direct_application_url": null,
+      "work_location": "APAC",
+      "india_eligibility": "eligible_signal",
+      "eligibility_evidence": [
+        {
+          "signal": "india_allowed",
+          "source": "description",
+          "text": "india-based"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.43744,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:58:56+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Docplanner",
+      "official_website": null,
+      "title": "Junior Software Engineer – Early Career (Strong Problem solving & Coding Focus) – 100% Remote within Poland",
+      "source_listing_url": "https://jobicy.com/jobs/156547-junior-software-engineer-early-career-strong-problem-solving-coding-focus-100-remote-within-poland-2",
+      "direct_application_url": null,
+      "work_location": "Poland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 7.89124,
+      "keyword_baseline_score": 6,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:35:22+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "PolicyMe",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/156829-software-engineer-13",
+      "direct_application_url": null,
+      "work_location": "Canada",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 7.67417,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:45:15+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Smartsheet",
+      "official_website": null,
+      "title": "Software Engineer I (Remote Eligible)",
+      "source_listing_url": "https://jobicy.com/jobs/163862-software-engineer-i-remote-eligible",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 6.87636,
+      "keyword_baseline_score": 5,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T15:42:24+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Connectwise",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/connectwise/senior-software-engineer-london-416825",
+      "direct_application_url": null,
+      "work_location": "London",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 6.87029,
+      "keyword_baseline_score": 5,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:55:18+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Dymatrix",
+      "official_website": null,
+      "title": "Software Engineer Full Stack JavaScript/TypeScript (all genders)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/dymatrix/software-engineer-full-stack-javascript-typescript-all-genders-hamburg-366481",
+      "direct_application_url": null,
+      "work_location": "Hamburg",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "golang"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 6.29932,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:52+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Doctolib",
+      "official_website": null,
+      "title": "Senior Software Engineer FullStack Kotlin / React - Berlin (f/m/d)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/doctolib/senior-software-engineer-fullstack-kotlin-react-berlin-72632",
+      "direct_application_url": null,
+      "work_location": "Berlin",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 6.06094,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:15+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Deliveroo",
+      "official_website": null,
+      "title": "Senior Software Engineer (Full Stack) - EMEA Pricing and Affordability",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/deliveroo/senior-software-engineer-full-stack-emea-pricing-and-affordability-london-267593",
+      "direct_application_url": null,
+      "work_location": "London, England, United Kingdom",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 5.8728,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:45:26+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Truelogic",
+      "official_website": null,
+      "title": "Senior Full-Stack Engineer (React/Next.js) - Media Production",
+      "source_listing_url": "https://jobicy.com/jobs/163886-senior-full-stack-engineer-react-next-js-media-production",
+      "direct_application_url": null,
+      "work_location": "Brazil",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 5.72121,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T16:09:59+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Monzo",
+      "official_website": null,
+      "title": "Senior Backend Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/156699-senior-backend-engineer-12",
+      "direct_application_url": null,
+      "work_location": "UK",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.67277,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:25:20+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Automation Consultants Ltd",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/automation-consultants-ltd/software-engineer-hybrid-281608",
+      "direct_application_url": null,
+      "work_location": "Hybrid",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.6713,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:32:55+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Sanovio",
+      "official_website": null,
+      "title": "Software Engineering Intern (Full-Stack)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/sanovio/software-engineering-intern-full-stack-munich-63636",
+      "direct_application_url": null,
+      "work_location": "Munich",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 5.64621,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:15+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Elastic",
+      "official_website": null,
+      "title": "Senior Software Engineer - Platform Billing Core",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/elastic/senior-software-engineer-platform-billing-core-362074",
+      "direct_application_url": null,
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.53567,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:55:20+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Talk360",
+      "official_website": null,
+      "title": "Senior Full-Stack Engineer",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/talk360/senior-full-stack-engineer-amsterdam-277699",
+      "direct_application_url": null,
+      "work_location": "Amsterdam, Noord-Holland, Netherlands",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "work from anywhere"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.43977,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:31:40+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Rackner",
+      "official_website": null,
+      "title": "Backend Software Engineer — Secure Mission Systems",
+      "source_listing_url": "https://jobicy.com/jobs/164109-backend-software-engineer-secure-mission-systems",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 5.34881,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T13:00:06+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Customer.io",
+      "official_website": null,
+      "title": "Senior Software Engineer, Product/AI",
+      "source_listing_url": "https://jobicy.com/jobs/156560-senior-software-engineer-product-ai",
+      "direct_application_url": null,
+      "work_location": "EMEA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 5.34445,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:35:10+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Swisscom",
+      "official_website": null,
+      "title": "IT Internship - Fullstack Engineer: Intelligent Next-Gen Invoice Validation Platform",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/swisscom/it-internship-fullstack-engineer-intelligent-next-gen-invoice-validation-platform-rotterdam-342340",
+      "direct_application_url": null,
+      "work_location": "Rotterdam, Zuid-Holland, Netherlands",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.13029,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:31:23+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Carta",
+      "official_website": null,
+      "title": "Senior Software Engineer II",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/carta/senior-software-engineer-ii-london-london-138030",
+      "direct_application_url": null,
+      "work_location": "London, London",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.01445,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:55:39+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Customer.io",
+      "official_website": null,
+      "title": "Senior Software Engineer, Backend",
+      "source_listing_url": "https://jobicy.com/jobs/156558-senior-software-engineer-backend-4",
+      "direct_application_url": null,
+      "work_location": "EMEA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.67662,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:40:38+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Pear VC",
+      "official_website": null,
+      "title": "Senior Backend Engineer - Endless Commerce",
+      "source_listing_url": "https://jobicy.com/jobs/163760-senior-backend-engineer-endless-commerce",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.44881,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T04:26:59+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Mistral.ai",
+      "official_website": null,
+      "title": "Software Engineer, Inference",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/mistralai/software-engineer-inference-london-335484",
+      "direct_application_url": null,
+      "work_location": "London",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 4.43999,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:40:12+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Canonical",
+      "official_website": null,
+      "title": "Software Engineer (Python/Linux/Packaging)",
+      "source_listing_url": "https://jobicy.com/jobs/164020-software-engineer-python-linux-packaging",
+      "direct_application_url": null,
+      "work_location": "LATAM, Canada, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 4.35431,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T18:31:32+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Gymshark",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/gymshark/senior-software-engineer-solihull-300284",
+      "direct_application_url": null,
+      "work_location": "Solihull",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "golang"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.34037,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:55:26+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Reflex Aerospace GmbH",
+      "official_website": null,
+      "title": "Satellite Operations Systems and Software Engineer (all genders)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/reflex-aerospace-gmbh/satellite-operations-systems-and-software-engineer-all-genders-berlin-319140",
+      "direct_application_url": null,
+      "work_location": "Berlin",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 4.22622,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:59+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Pear VC",
+      "official_website": null,
+      "title": "Senior Frontend Engineer - Endless Commerce",
+      "source_listing_url": "https://jobicy.com/jobs/163764-senior-frontend-engineer-endless-commerce",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 4.02198,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T04:27:05+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Goodleap",
+      "official_website": null,
+      "title": "Software Engineer, AI Transformation",
+      "source_listing_url": "https://jobicy.com/jobs/163995-software-engineer-ai-transformation",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.01177,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T17:55:34+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Samsara",
+      "official_website": null,
+      "title": "Sr. Software Engineer II / Tech lead, Agentic Platform (Poland, Remote, B2B)",
+      "source_listing_url": "https://jobicy.com/jobs/163874-sr-software-engineer-ii-tech-lead-agentic-platform-poland-remote-b2b-2",
+      "direct_application_url": null,
+      "work_location": "Poland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "golang"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 4.01166,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T15:46:39+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "NerdWallet",
+      "official_website": null,
+      "title": "Senior Software Engineer, Consumer Facing Web Products",
+      "source_listing_url": "https://jobicy.com/jobs/164119-senior-software-engineer-consumer-facing-web-products",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react.js"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.01071,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T13:00:58+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Ramp",
+      "official_website": null,
+      "title": "Software Engineer, Security, Stablecoin",
+      "source_listing_url": "https://jobicy.com/jobs/163919-software-engineer-security-stablecoin-2",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00995,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:36:20+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Veriff",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/164038-senior-software-engineer-30",
+      "direct_application_url": null,
+      "work_location": "Spain",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "anywhere in the world"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 4.00939,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T08:06:15+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "CoreWeave",
+      "official_website": null,
+      "title": "Senior Data Platform Engineer - Weights & Biases",
+      "source_listing_url": "https://jobicy.com/jobs/163981-senior-data-platform-engineer-weights-biases",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00765,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T17:53:03+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Huntress",
+      "official_website": null,
+      "title": "Principal Software Engineer - Agentic SOC",
+      "source_listing_url": "https://jobicy.com/jobs/156767-principal-software-engineer-agentic-soc",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00523,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:40:10+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Roboflow",
+      "official_website": null,
+      "title": "Full Stack Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/151415-full-stack-engineer",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00515,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:25:29+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Tether Operations Limited",
+      "official_website": null,
+      "title": "Senior Devops Engineer (100% Remote, Worldwide)",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/tether-operations-limited/senior-devops-engineer-100-remote-worldwide-london-168519",
+      "direct_application_url": null,
+      "work_location": "Remote job",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "title",
+          "text": "worldwide"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 3.92895,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:31:48+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Belmont Lavan Ltd",
+      "official_website": null,
+      "title": "Mainframe Data Engineer - 3 to 6 Months Contract",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/belmont-lavan-ltd/mainframe-data-engineer-3-to-6-months-contract-amsterdam-446165",
+      "direct_application_url": null,
+      "work_location": "Amsterdam, Netherlands",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 3.87715,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T16:20:18+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Belmont Lavan Ltd",
+      "official_website": null,
+      "title": "Data Engineer - 3 Months Contract",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/belmont-lavan-ltd/data-engineer-3-months-contract-amsterdam-59061",
+      "direct_application_url": null,
+      "work_location": "Amsterdam, Netherlands",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 3.87292,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T16:20:18+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "GitLab",
+      "official_website": null,
+      "title": "Staff Backend Engineer, Performance Enablement",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-staff-backend-engineer-performance-enablement-gitlab-1138066",
+      "direct_application_url": null,
+      "work_location": "Europe",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "amazon web services"
+        }
+      ],
+      "relevance_score": 3.82226,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T00:00:08+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Abnormalsecurity",
+      "official_website": null,
+      "title": "Enterprise Platform Engineer, EMEA",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/abnormalsecurity/enterprise-platform-engineer-emea-335308",
+      "direct_application_url": null,
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 3.66947,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:55:42+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "AVISIA",
+      "official_website": null,
+      "title": "DATA ENGINEER - H/F - LYON",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/avisia/data-engineer-h-f-lyon-376194",
+      "direct_application_url": null,
+      "work_location": "LYON, Auvergne-Rhône-Alpes, France",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.44974,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T06:31:25+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Pear VC",
+      "official_website": null,
+      "title": "Founding Software Engineer - Vimes",
+      "source_listing_url": "https://jobicy.com/jobs/163768-founding-software-engineer-vimes",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.43739,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T04:27:10+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Zone & Co",
+      "official_website": null,
+      "title": "AI Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/153823-ai-software-engineer",
+      "direct_application_url": null,
+      "work_location": "Czechia",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.43423,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:25:42+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "dscout",
+      "official_website": null,
+      "title": "Mobile Principal Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/156651-mobile-principal-software-engineer",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.43281,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:50:20+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Flexport",
+      "official_website": null,
+      "title": "Software Engineer II: Autonomous Supply Chains",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/flexport/software-engineer-ii-autonomous-supply-chains-amsterdam-120266",
+      "direct_application_url": null,
+      "work_location": "Amsterdam",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 3.43225,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:55:39+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Canonical",
+      "official_website": null,
+      "title": "Software Engineer - Python - Cloud - graduate level",
+      "source_listing_url": "https://jobicy.com/jobs/164019-software-engineer-python-cloud-graduate-level",
+      "direct_application_url": null,
+      "work_location": "LATAM, Canada, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 3.40769,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T18:31:30+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Wavestone Germany AG",
+      "official_website": null,
+      "title": "Expert Enterprise Platform Architect (m/w/d) - AI-Architektur (Ref.Nr.: 48374)",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/wavestone-germany-ag/expert-enterprise-platform-architect-ai-architektur-refnr-48374-bern-255054",
+      "direct_application_url": null,
+      "work_location": "Bern",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.02034,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T18:30:48+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "VTEX",
+      "official_website": null,
+      "title": "Senior Software Engineer (Platform Engineer), Cloud Governance",
+      "source_listing_url": "https://jobicy.com/jobs/163890-senior-software-engineer-platform-engineer-cloud-governance",
+      "direct_application_url": null,
+      "work_location": "Brazil",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.0127,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T16:10:59+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Datadog",
+      "official_website": null,
+      "title": "Senior Software Engineer - Autonomous Ops & Maintenance (ATOM)",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/datadog/senior-software-engineer-autonomous-ops-maintenance-atom-paris-164344",
+      "direct_application_url": null,
+      "work_location": "Paris",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 3.01152,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:55:17+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "VTEX",
+      "official_website": null,
+      "title": "Senior Software Engineer, Frontend",
+      "source_listing_url": "https://jobicy.com/jobs/163889-senior-software-engineer-frontend-4",
+      "direct_application_url": null,
+      "work_location": "Brazil",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.00898,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T16:10:37+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Constructor",
+      "official_website": null,
+      "title": "Software Engineer: Core",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/constructor/remote-software-engineer-core-180673",
+      "direct_application_url": null,
+      "work_location": "Remote",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.00444,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:40:17+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Proact",
+      "official_website": null,
+      "title": "Presales Architect (m/w/d) Cloud Native & Platforms",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/proact/presales-architect-cloud-native-platforms-office-koln-237593",
+      "direct_application_url": null,
+      "work_location": "Office Köln",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.82511,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:33:00+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Canonical",
+      "official_website": null,
+      "title": "Software Engineer - Ubuntu Server Certification",
+      "source_listing_url": "https://jobicy.com/jobs/164021-software-engineer-ubuntu-server-certification",
+      "direct_application_url": null,
+      "work_location": "LATAM, Canada, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.67351,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T18:31:52+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Masabi",
+      "official_website": null,
+      "title": "Software Engineer (Remote - Contractor)",
+      "source_listing_url": "https://jobicy.com/jobs/163811-software-engineer-remote-contractor-2",
+      "direct_application_url": null,
+      "work_location": "Romania",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 2.66986,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T05:56:40+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Marsorobotics",
+      "official_website": null,
+      "title": "Senior Embedded Software Engineer H/F",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/marsorobotics/senior-embedded-software-engineer-h-f-paris-142913",
+      "direct_application_url": null,
+      "work_location": "Paris",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.43201,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:17+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Univé",
+      "official_website": null,
+      "title": "IT Specialist Frontend Platform",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/unive/it-specialist-frontend-platform-zwolle-113452",
+      "direct_application_url": null,
+      "work_location": "Zwolle, Overijssel, Nederland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.4318,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T06:31:25+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Marsorobotics",
+      "official_website": null,
+      "title": "Embedded Software Engineer H/F",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/marsorobotics/embedded-software-engineer-h-f-paris-464750",
+      "direct_application_url": null,
+      "work_location": "Paris",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.43179,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:17+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Catapult Sports",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/catapult-sports/senior-software-engineer-london-39801",
+      "direct_application_url": null,
+      "work_location": "Southwark, London, England, United Kingdom",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.42998,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T08:45:26+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Coopers Group AG",
+      "official_website": null,
+      "title": "Solution Architect Customer Touchpoints & Cloud Transformation",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/solution-architect-customer-touchpoints-cloud-transformation-zurich-258035",
+      "direct_application_url": null,
+      "work_location": "Zürich",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.01188,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T08:30:33+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "alphacoders GmbH",
+      "official_website": null,
+      "title": "Cloud Engineer (m/w/d)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/alphacoders-gmbh/cloud-engineer-cologne-426505",
+      "direct_application_url": null,
+      "work_location": "Cologne",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 2.01098,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:30:49+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Truelogic",
+      "official_website": null,
+      "title": "Junior/Semi-Senior Back-End Engineer (.NET) - IT Solutions",
+      "source_listing_url": "https://jobicy.com/jobs/163882-junior-semi-senior-back-end-engineer-net-it-solutions",
+      "direct_application_url": null,
+      "work_location": "Mexico",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 2.008,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T16:09:53+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "SwissPeak Partners GmbH",
+      "official_website": null,
+      "title": "Senior Platform Engineer",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/senior-platform-engineer-basel-371298",
+      "direct_application_url": null,
+      "work_location": "Basel, Basel-Stadt, Switzerland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.00638,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T06:31:22+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Tremendous",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/151290-senior-software-engineer-3",
+      "direct_application_url": null,
+      "work_location": "LATAM, Canada, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 2.00638,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:25:16+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Makai Labs",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/163918-senior-software-engineer-29",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.0054,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:36:18+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "VTEX",
+      "official_website": null,
+      "title": "Staff Software Engineer, Backend",
+      "source_listing_url": "https://jobicy.com/jobs/163980-staff-software-engineer-backend-3",
+      "direct_application_url": null,
+      "work_location": "Brazil",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 2.00467,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T17:26:51+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Agon",
+      "official_website": null,
+      "title": "Member of Technical Staff, Platform",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/agon/member-of-technical-staff-platform-london-office-346171",
+      "direct_application_url": null,
+      "work_location": "London Office",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00345,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:17+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Dropbox",
+      "official_website": null,
+      "title": "Senior Atlassian Cloud Administrator",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-atlassian-cloud-administrator-dropbox-1137874",
+      "direct_application_url": null,
+      "work_location": "Europe",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00331,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-20T02:15:13+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Sanity",
+      "official_website": null,
+      "title": "Software Engineering Manager, Billing & Integrations",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/sanity/software-engineering-manager-billing-integrations-london-uk-337815",
+      "direct_application_url": null,
+      "work_location": "London, UK",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        }
+      ],
+      "relevance_score": 2.00327,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:43:30+00:00",
+      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Huntress",
+      "official_website": null,
+      "title": "Principal Software Engineer, SIEM (Ruby/Rails)",
+      "source_listing_url": "https://jobicy.com/jobs/156769-principal-software-engineer-siem-ruby-rails",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 2.00298,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:40:12+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "GiveDirectly",
+      "official_website": null,
+      "title": "Senior Software Engineer (Fundraising) — Remote",
+      "source_listing_url": "https://jobicy.com/jobs/156858-senior-software-engineer-fundraising-remote",
+      "direct_application_url": null,
+      "work_location": "Canada, UK, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00188,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:45:36+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Accenture",
+      "official_website": null,
+      "title": "Infrastructure Technology Support Practioner DACH (all genders)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/accenture/infrastructure-technology-support-practioner-dach-all-genders-kronberg-94709",
+      "direct_application_url": null,
+      "work_location": "Kronberg",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T16:00:50+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "BJAK",
+      "official_website": null,
+      "title": "Lead Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/163959-lead-software-engineer-2",
+      "direct_application_url": null,
+      "work_location": "Austria",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:49:29+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "BJAK",
+      "official_website": null,
+      "title": "Principal Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/163960-principal-software-engineer-3",
+      "direct_application_url": null,
+      "work_location": "Austria",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:49:31+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "BJAK",
+      "official_website": null,
+      "title": "Staff Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/163941-staff-software-engineer-17",
+      "direct_application_url": null,
+      "work_location": "Austria",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:47:44+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Canonical",
+      "official_website": null,
+      "title": "C++/Rust Graphics and Windowing System Software Engineer - Mir",
+      "source_listing_url": "https://jobicy.com/jobs/151197-c-rust-graphics-and-windowing-system-software-engineer-mir",
+      "direct_application_url": null,
+      "work_location": "APAC, EMEA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:25:31+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Canonical",
+      "official_website": null,
+      "title": "System Software Engineer - GCC/LLVM compiler, tooling, and ecosystem",
+      "source_listing_url": "https://jobicy.com/jobs/164022-system-software-engineer-gcc-llvm-compiler-tooling-and-ecosystem",
+      "direct_application_url": null,
+      "work_location": "LATAM, Canada, USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T18:31:54+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Catawiki",
+      "official_website": null,
+      "title": "Backend Engineer",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/catawiki/backend-engineer-amsterdam-197303",
+      "direct_application_url": null,
+      "work_location": "Amsterdam",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:55:16+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "CDDS AG",
+      "official_website": null,
+      "title": "Software Team Lead",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/cdds-ag/software-team-lead-zurich-52708",
+      "direct_application_url": null,
+      "work_location": "Zürich",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:30:49+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "CertiK",
+      "official_website": null,
+      "title": "Software Engineer (Engineer III to Principal) - Formal Methods",
+      "source_listing_url": "https://jobicy.com/jobs/156398-software-engineer-engineer-iii-to-principal-formal-methods",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T04:01:01+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Dymatrix",
+      "official_website": null,
+      "title": "Platform Architect (all genders)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/dymatrix/platform-architect-all-genders-stuttgart-hamburg-karlsruhe-225989",
+      "direct_application_url": null,
+      "work_location": "Stuttgart, Hamburg, Karlsruhe",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:52+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Episode Six",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/163857-senior-software-engineer-28",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T15:42:17+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Interstellar",
+      "official_website": null,
+      "title": "Senior Microsoft XDR & Identity Security Engineer",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/interstellar/senior-microsoft-xdr-identity-security-engineer-odijk-73473",
+      "direct_application_url": null,
+      "work_location": "Odijk, Utrecht, Nederland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T12:31:29+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Lyceum",
+      "official_website": null,
+      "title": "Working Student Legal (AI Infrastructure)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/lyceum/working-student-legal-ai-infrastructure-berlin-176466",
+      "direct_application_url": null,
+      "work_location": "Berlin",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:40:15+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Screeningeagle",
+      "official_website": null,
+      "title": "Product Owner – Inspection Instruments for Infrastructure (Hardware & Software) (m/f/d)",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/screeningeagle/product-owner-inspection-instruments-for-infrastructure-hardware-software-schwerzenbach-63776",
+      "direct_application_url": null,
+      "work_location": "Schwerzenbach",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:32:51+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "ServiceHunter AG - quitt, quinn",
+      "official_website": null,
+      "title": "Product Frontend Engineer",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/servicehunter-ag-quitt-quinn/product-frontend-engineer-zurich-295369",
+      "direct_application_url": null,
+      "work_location": "Zürich",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T14:30:45+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Socure",
+      "official_website": null,
+      "title": "Staff Backend Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/153889-staff-backend-engineer-3",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:25:45+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "SwissPeak Partners GmbH",
+      "official_website": null,
+      "title": "AI Software Architect",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/ai-software-architect-zurich-478929",
+      "direct_application_url": null,
+      "work_location": "Zurich, Zürich, Switzerland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T06:31:22+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "SwissPeak Partners GmbH",
+      "official_website": null,
+      "title": "Software Project Manager (Warehouse Management)",
+      "source_listing_url": "https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/software-project-manager-warehouse-management-zurich-333466",
+      "direct_application_url": null,
+      "work_location": "Zurich, Zürich, Switzerland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T06:31:22+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Testlio",
+      "official_website": null,
+      "title": "Software Tester (Freelance) | Test AT&T U-verse & Cox",
+      "source_listing_url": "https://jobicy.com/jobs/164073-software-tester-freelance-test-att-u-verse-cox",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T11:25:51+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Twilio",
+      "official_website": null,
+      "title": "Software Engineer (L2) Supernetwork",
+      "source_listing_url": "https://jobicy.com/jobs/164140-software-engineer-l2-supernetwork",
+      "direct_application_url": null,
+      "work_location": "Ireland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T14:44:06+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "VTEX",
+      "official_website": null,
+      "title": "Senior Software Engineer, Backend",
+      "source_listing_url": "https://jobicy.com/jobs/163888-senior-software-engineer-backend-5",
+      "direct_application_url": null,
+      "work_location": "Brazil",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T16:10:23+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Workidentity",
+      "official_website": null,
+      "title": "IT Security Engineer (gn)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/workidentity/it-security-engineer-gn-hamburg-400267",
+      "direct_application_url": null,
+      "work_location": "Hamburg",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:54+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Workidentity",
+      "official_website": null,
+      "title": "IT Security Engineer / Security Architect (gn)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/workidentity/it-security-engineer-security-architect-gn-hamburg-467205",
+      "direct_application_url": null,
+      "work_location": "Hamburg",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:54+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Workidentity",
+      "official_website": null,
+      "title": "Senior Cloud Infrastructure Engineer (gn)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/workidentity/senior-cloud-infrastructure-engineer-gn-hamburg-94079",
+      "direct_application_url": null,
+      "work_location": "Hamburg",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:54+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Workidentity",
+      "official_website": null,
+      "title": "System Engineer Infrastruktur & Cloud (gn)",
+      "source_listing_url": "https://www.arbeitnow.com/jobs/companies/workidentity/system-engineer-infrastruktur-cloud-gn-stuttgart-192586",
+      "direct_application_url": null,
+      "work_location": "Stuttgart",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:32:54+00:00",
+      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    }
+  ],
+  "company_leads": [],
+  "rejected_opportunities": [
+    {
+      "company": "Close",
+      "official_website": null,
+      "title": "Senior Software Engineer – Backend (USA Only - 100% Remote)",
+      "source_listing_url": "https://jobicy.com/jobs/151308-senior-software-engineer-backend-usa-only-100-remote",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "title",
+          "text": "usa only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 7.87783,
+      "keyword_baseline_score": 6,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:25:22+00:00",
+      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Cribl",
+      "official_website": null,
+      "title": "Sr Mgr, Software Engineering (Cribl Detect)",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-sr-mgr-software-engineering-cribl-detect-cribl-1137923",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 7.01902,
+      "keyword_baseline_score": 6,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T01:00:06+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Engineering Manager, Ranking Platform",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-engineering-manager-ranking-platform-reddit-1137946",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 6.00912,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T05:00:05+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Principal Software Engineer, Infrastructure",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-principal-software-engineer-infrastructure-reddit-1137945",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.67624,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T04:40:06+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Cribl",
+      "official_website": null,
+      "title": "Staff Software Engineer, Agentic Tools",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-staff-software-engineer-agentic-tools-cribl-1137955",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.43783,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T09:40:06+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Abnormal",
+      "official_website": null,
+      "title": "Senior Software Engineer - Behavioral Security Products",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-behavioral-security-products-abnormal-1137948",
+      "direct_application_url": null,
+      "work_location": "UK Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "uk only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.01279,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T05:20:05+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Clover Health",
+      "official_website": null,
+      "title": "Senior Software Developer, Agentic AI - Canada",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-developer-agentic-ai-canada-clover-health-1138068",
+      "direct_application_url": null,
+      "work_location": "Canada Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "canada only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00875,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T09:20:04+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Clover Health",
+      "official_website": null,
+      "title": "Senior Software Engineer, Agentic AI",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-agentic-ai-clover-health-1138070",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00722,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T09:40:04+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Senior SRE, Site Experience",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-sre-site-experience-reddit-1137975",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 4.0065,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T01:40:06+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Natera",
+      "official_website": null,
+      "title": "Sr. Forward Deployed Data Engineer",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-sr-forward-deployed-data-engineer-natera-1137970",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.86084,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T01:00:07+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "6sense",
+      "official_website": null,
+      "title": "Staff Security Engineer - AppSec",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-staff-security-engineer-appsec-6sense-1137897",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.43263,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-20T07:40:14+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Clover Health",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-clover-health-1137871",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 3.00513,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-20T01:30:14+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Honeycomb.io",
+      "official_website": null,
+      "title": "Senior Software Engineer II - Agentic Intelligence",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-ii-agentic-intelligence-honeycomb-io-1137924",
+      "direct_application_url": null,
+      "work_location": "Canada Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "canada only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Go",
+          "matched_as": "go"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 3.00437,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T01:20:20+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Airbnb",
+      "official_website": null,
+      "title": "Staff Data Scientist - Martech Platform (ML/Algos)",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-staff-data-scientist-martech-platform-ml-algos-airbnb-1137956",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00297,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T10:00:05+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Senior Staff SRE, Site Experience",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-staff-sre-site-experience-reddit-1137974",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.00247,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-22T01:40:05+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Airbnb",
+      "official_website": null,
+      "title": "Senior Software Engineer, Partner Integrations",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-partner-integrations-airbnb-1137954",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T09:40:04+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Clover Health",
+      "official_website": null,
+      "title": "Senior Software Developer - Canada",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-developer-canada-clover-health-1137872",
+      "direct_application_url": null,
+      "work_location": "Canada Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "canada only"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-20T01:45:13+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Natera",
+      "official_website": null,
+      "title": "Lead, Office of Software Assurance",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-lead-office-of-software-assurance-natera-1137940",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T04:00:04+00:00",
+      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    }
+  ]
+}

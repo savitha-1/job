@@ -37,3 +37,12 @@ Checked 2026-11-24. GitHub refs below were resolved with read-only `git ls-remot
 ## Dependency and source checks
 
 The project adds no copied third-party implementation. Python application logic remains standard library. Browser/PDF requirements are version-pinned; Playwright's Python wheel installs Chromium separately and is exercised by local fixture E2E. Do not run candidate repositories' setup scripts or their crawlers as part of this project. Candidate sources are research references only.
+
+## Continued global-discovery implementation (2026-11-24)
+
+- Added bounded public feed adapters for Arbeitnow DE/UK, Remote OK and Jobicy. Feed records are source observations, not official employer vacancies or direct application URLs. The current report records source credit and links for attribution.
+- The live worker reads one capped GH Archive hour and resolves at most 15 account names against GitHub's public organization API. Both event activity and API org profiles remain unverified company leads. The bounded live run resolved 8 org profiles, verified 0 employers, and verified 0 vacancies.
+- The new retrieval score is deterministic, alias-aware and field-weighted (title/tags/description). It is not BM25 or a semantic embedding. The modest exact URL de-duplicator merges only identical company+listing URL sightings across provider feeds and preserves all feed names; near-duplicate requisitions remain separate.
+- Eligibility checks include role title, location and description. A country-specific location is not promoted by generic worldwide boilerplate. Exact India mentions are evidence signals, not proof that the role exists at the employer or that the provider has not gone stale. Only official-source active vacancies with direct links contribute to the strict fully eligible count.
+- In a bounded Common Crawl probe, the current index registry resolved, but two serial domain index queries returned HTTP 504. No records were counted from those failed queries. In a public Playwright probe, 7 pages loaded on 3 company domains, 3 career pages were found, 0 structured JobPosting entries were found, and one site presented a human-verification checkpoint.
+- No third-party source code was copied. The registered upstream techniques remain alternatives; no PageRank, probabilistic identity linkage, embeddings or bandit scheduler is claimed to improve this live slice without independent labels.

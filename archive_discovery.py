@@ -4,7 +4,7 @@ import json
 import re
 from collections import defaultdict
 from urllib.parse import urlsplit, urlencode
-from urllib.request import Request, urlopen
+from urllib.request import Request
 from network_guard import PublicHTTPSProxy, build_public_opener
 
 CAREER = re.compile(r"(?:^|[/. _-])(careers?|jobs?|join-us|work-with-us|open-positions|vacancies)(?:$|[/. _-])", re.I)
@@ -37,6 +37,14 @@ def get(url):
             if len(data)>16*1024*1024:
                 raise ValueError("archive response too large")
             return data.decode("utf-8")
+
+def latest_index():
+    """Read the current Common Crawl index registry instead of pinning a stale crawl."""
+    rows=json.loads(get("https://index.commoncrawl.org/collinfo.json"))
+    indexes=[row.get("id","") for row in rows if re.fullmatch(r"CC-MAIN-\d{4}-\d{2}",row.get("id",""))]
+    if not indexes:
+        raise ValueError("Common Crawl did not return a recognized index")
+    return indexes[0]
 
 def archive(domain, index):
     if not re.fullmatch(r"[a-zA-Z0-9.-]+",domain) or not re.fullmatch(r"CC-MAIN-\d{4}-\d{2}",index):

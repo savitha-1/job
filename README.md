@@ -16,8 +16,28 @@ python -m playwright install chromium
 Run an ATS fetch from public board APIs:
 
 ```sh
-python discover.py greenhouse:stripe ashby:linear --output opportunities.json
+python discover.py greenhouse:your-board --output opportunities.json
 ```
+
+Start the local, loopback-only discovery and application-preparation dashboard:
+
+```sh
+python dashboard.py --open
+```
+
+Run a bounded cross-source global discovery snapshot and write a ranked public
+opportunity report (no candidate data is uploaded):
+
+```sh
+python live_discovery.py --output reports/latest-discovery.json
+```
+
+The snapshot reads Arbeitnow (Germany and UK), Remote OK, Jobicy, one capped
+recent GH Archive hour, and up to 12 public GitHub organization profiles.
+Aggregator entries remain source observations; they are not called official
+vacancies or employer application URLs. GitHub profiles remain unverified
+company leads. “India eligibility signal” is distinct from a verified,
+applicable opportunity; unknown remains unknown.
 
 Run bounded read-only dynamic exploration of a public HTTPS career site:
 
@@ -51,14 +71,13 @@ pending_human_review = workflow.approval_queue(workflow_id)
 
 The workflow stores review steps and explicitly approved reusable answers locally, enforces one opportunity per employer per batch, and recovers interrupted preparation/submission states. `paused` and `stopped` controls gate browser preparation. There is no submit adapter; no command or workflow state sends an application. Keep candidate profile and resume files outside Git.
 
-For read-only mailbox confirmation tracking, construct `GmailReadOnlyMailbox` only after obtaining an OAuth access token with Gmail read-only scope. Tokens and message content are not written to disk. The fake mailbox is used in tests; no mailbox was accessed during verification.
+Mailbox tracking is deferred in this milestone. No mailbox access occurs from the dashboard or discovery command.
 
 ## Verification
 
 ```sh
 .venv/bin/python -m unittest discover -v
 .venv/bin/python -m compileall -q .
-.venv/bin/python benchmark_pipeline.py --count 3000
 ```
 
-See [RESEARCH.md](RESEARCH.md) for upstream/license audit and [VERIFICATION.md](VERIFICATION.md) for measured results and limits. Synthetic throughput does not establish live daily employer discovery capacity.
+See [reports/latest-discovery.json](reports/latest-discovery.json) for the latest bounded live output, [RESEARCH.md](RESEARCH.md) for upstream/license notes, and [VERIFICATION.md](VERIFICATION.md) for measured results and limits. No 3,000-employer/day live capacity claim is made.

@@ -196,9 +196,13 @@ async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, del
                     if row["career_page"]:
                         store.save_company_lead({"organization": host, "host": host, "verified_employer": False, "evidence": [{"url": final_url, "kind": "live_career_page", "status": status}]}, "live_career_page")
                     for index, posting in enumerate(structured["job_postings"]):
-                        posting_url = posting.get("application_url") or final_url
-                        job_id = posting_url or f"{host}:{index}:{title}"
-                        store.save_job(host_id, {"source": "jsonld", "board": host, "id": job_id, "title": posting.get("title", ""), "location": posting.get("applicant_location") or posting.get("location") or "", "description": "", "application_url": posting_url, "evidence_url": final_url, "observed_at": row["observed_at"]})
+                        # JobPosting.url identifies the vacancy page. It is not proof
+                        # of a direct application form; retain the two claims apart.
+                        vacancy_url = posting.get("vacancy_url")
+                        if vacancy_url and _url_allowed(vacancy_url, fixture):
+                            store.enqueue(vacancy_url, priority=95 - 10 * depth, depth=depth + 1, parent=final_url, allow_local_fixture=fixture)
+                        job_id = vacancy_url or f"{host}:{index}:{title}"
+                        store.save_job(host_id, {"source": "jsonld", "board": host, "id": job_id, "title": posting.get("title", ""), "location": posting.get("applicant_location") or posting.get("location") or "", "vacancy_url": vacancy_url, "application_url": posting.get("application_url"), "evidence_url": final_url, "observed_at": row["observed_at"], "status": "unverified"})
                 if depth >= max_depth or status < 200 or status >= 400:
                     continue
                 for link in links[:500]:
