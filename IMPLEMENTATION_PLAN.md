@@ -30,3 +30,16 @@ Seed UK, Germany, Netherlands, US, Estonia, Ireland, Sweden, Switzerland, Canada
 
 ## Current status
 Initial Python primitives and discovery modules were committed earlier. This plan does not certify their correctness, third-party integration, full system readiness, or live benchmark success. No guarantee of complete internet coverage or employment.
+
+## Revised product requirements: resume-to-application automation
+User clarification: target 3,000 distinct opportunities/day across distinct employers, never repeated applications to one employer. Treat 3,000 as a capacity/aspiration, not a promise of available eligible vacancies or successful submissions.
+- Resume ingestion: local PDF/DOCX/text extraction, structured candidate facts with provenance, immutable original, explicit unknown fields. Never commit personal resume, credentials or mail tokens to this public repository.
+- Candidate profile: configurable employment eligibility, experience, salary, timezone, sponsorship, location and preferences; user-approved reusable answers. No fabricated experience, legal declarations or assessment answers.
+- Discovery: retain global company-first discovery, public web state graphs, public hiring announcements, ATS feeds where useful; no single-source dependency.
+- Application workflow: adapter interface for permitted portals; dry-run default; discover public form schema, classify fields, fill from approved facts, validate required fields, produce review packet and direct URL. Submit only where platform permits automation and user has authorized the submission scope; stop on CAPTCHA, ambiguous questions, assessments, unknown fields, or access restrictions. No account rotation, bypass, or bulk unsolicited mail.
+- Employer deduplication: canonical employer identity and stable requisition IDs, persistent idempotency keys, transactional application ledger, reconcile uncertain submission outcomes before retry; default one opportunity per employer per daily batch.
+- LLM: optional provider abstraction for extracting requirements and tailoring truthful resumes; schema validation, source citations, untrusted webpage text isolation, no autonomous access to credentials or submission tools. Deterministic rules handle known fields. Local-first and explicit cost budget.
+- Email: read authorized mailbox confirmations and recruiter responses, correlate with ledger, flag interview deadlines, deliver daily summaries; no automatic external outreach to scraped email addresses. Use only official invitation/application channels.
+- Background operation: explicit configured worker/scheduler, persistent queue, retries with backoff, pause/kill switch, rate budgets per portal, redacted audit logs, failure alerts.
+- Benchmark: measure 3,000 unique employer candidates/day and preparation throughput separately from permitted submissions; track verified vacancies, eligibility precision, form accuracy, duplicate submissions (target zero), confirmation rate, and interviews. Never force volume by lowering eligibility standards.
+- Release order: offline fixtures and dry runs, sandbox form integration, authorized small live pilot, then scale based on observed accuracy, portal constraints and available eligible vacancies. No unattended live submission until pilot gates pass.
