@@ -2,6 +2,15 @@
 
 Checked 2026-11-24. GitHub refs below were resolved with read-only `git ls-remote` and are recorded as audit pins. No source code from these projects is copied into this repository. Playwright and pypdf are runtime dependencies for the optional browser/PDF paths, pinned in `requirements-dev.txt`; dependency licenses remain their own (Apache-2.0 and BSD-3-Clause respectively). Websites, their data, and their access rules are separate from code licenses.
 
+## Public ATS discovery interfaces audited 2026-11-25
+
+- [SmartRecruiters Posting API](https://developers.smartrecruiters.com/reference/v1listpostings) exposes public company postings. The adapter fetches one detail record only after an observed posting URL identifies its requisition; it does not fetch every job detail on a board.
+- [Workable careers API guidance](https://help.workable.com/hc/en-us/articles/115012771647-Using-the-Workable-API-to-create-a-careers-page) documents the public careers endpoint used for published job data. The authenticated administrative API is not used.
+- [Personio open positions](https://developer.personio.de/docs/retrieving-open-job-positions) documents the public XML job feed. Application URLs are taken only from a visible official page, never guessed from the XML.
+- Recruitee and Teamtailor API access requires employer credentials ([Recruitee](https://support.recruitee.com/en/articles/1066282-api-documentation), [Teamtailor](https://docs.teamtailor.com/)); BambooHR has no documented unauthenticated listings API used here. These fall back to public HTML/browser extraction, subject to robots policy and human gates.
+
+The adapters do not reuse external source code. They follow public API documentation, retain observed board identifiers and require evidence connecting the board to the employer.
+
 | Project / identity | Audited revision and license | Source technique reviewed / use here |
 |---|---|---|
 | [JobHunter](https://github.com/cahumphreys/jobhunter) | `17580b7ab1bbb7d11e1df011d814df952623f945`, MIT | `src/` and docs describe ATS adapters, local scoring, company discovery. No code copied; ATS-first remains a baseline. |

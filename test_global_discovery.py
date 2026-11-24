@@ -10,6 +10,59 @@ from web_evidence import inspect_html
 
 
 class GlobalDiscoveryTests(unittest.TestCase):
+    def test_public_ats_detection_uses_observed_board_and_posting_identifiers(self):
+        from discover import detect_public_ats
+        self.assertEqual(detect_public_ats("https://boards.greenhouse.io/acme/jobs/42"),
+                         {"source": "greenhouse", "board": "acme", "job_id": "42"})
+        self.assertEqual(detect_public_ats("https://careers.smartrecruiters.com/acme/job/backend/abc"),
+                         {"source": "smartrecruiters", "board": "acme", "job_id": "abc"})
+        self.assertEqual(detect_public_ats("https://acme.jobs.personio.de/job/42")["source"], "personio")
+        self.assertEqual(detect_public_ats("https://jobs.lever.co/acme/42")["source"], "lever")
+        self.assertEqual(detect_public_ats("https://jobs.eu.lever.co/acme/42")["source"], "lever-eu")
+        self.assertEqual(detect_public_ats("https://jobs.ashbyhq.com/acme/42")["source"], "ashby")
+        self.assertEqual(detect_public_ats("https://apply.workable.com/acme/j/42")["source"], "workable")
+        self.assertEqual(detect_public_ats("https://acme.recruitee.com/o/backend")["source"], "recruitee")
+        self.assertEqual(detect_public_ats("https://acme.teamtailor.com/jobs/42")["source"], "teamtailor")
+        self.assertEqual(detect_public_ats("https://acme.bamboohr.com/careers/42")["source"], "bamboohr")
+        self.assertIsNone(detect_public_ats("http://127.0.0.1/acme"))
+
+    def test_smartrecruiters_board_discovery_does_not_fan_out_details(self):
+        from unittest.mock import patch
+        from discover import fetch_public_ats
+        payload = {"content":[{"id":"1","name":"Engineer"},{"id":"2","name":"Designer"}]}
+        with patch("discover._request_json", return_value=payload) as request:
+            result = fetch_public_ats("https://careers.smartrecruiters.com/acme")
+        self.assertEqual(request.call_count, 1)
+        self.assertEqual(result["request_count"], 1)
+        self.assertEqual(result["jobs"], [])
+
+    def test_verification_frontier_persists_all_links_and_fairly_prioritizes_first_link(self):
+        from verification_frontier import VerificationFrontier
+        with tempfile.TemporaryDirectory() as temp:
+            frontier = VerificationFrontier(Path(temp) / "frontier.sqlite3")
+            for i in range(3):
+                frontier.enqueue_candidate({"source":"fixture", "source_id":str(i), "employer":f"Employer {i}",
+                    "title":"Backend Engineer", "candidate_urls":[f"https://employer{i}.example/jobs/1",f"https://employer{i}.example/careers"]}, priority=3-i)
+            first = frontier.claim_urls(3)
+            self.assertEqual({item["stage"] for item in first}, {0})
+            second = frontier.claim_urls(3)
+            self.assertEqual({item["stage"] for item in second}, {1})
+
+    def test_verifier_rejects_closed_and_generic_application_pages(self):
+        from vacancy_verifier import _VisiblePage, _application_is_job_specific, _posting_match
+        target = {"employer":"Acme", "title":"Backend Engineer", "skills":["Python"]}
+        page = _VisiblePage("https://jobs.ashbyhq.com/acme/abc")
+        page.text = ["Applications closed"]
+        posting = {"title":"Backend Engineer", "company":"Acme", "url":"https://jobs.ashbyhq.com/acme/abc",
+                   "application_url":"https://jobs.ashbyhq.com/acme/abc/application"}
+        self.assertEqual(_posting_match(target, posting, page.base, "fixture:ats", board="acme", visible_page=page)[1], "vacancy_closed")
+        generic = {"title":"Backend Engineer", "company":"Acme", "url":"https://acme.example/jobs/backend-engineer",
+                   "application_url":"https://acme.example/jobs/apply/1"}
+        result, reason = _posting_match(target, generic, generic["url"], "fixture:jsonld")
+        self.assertIsNone(result)
+        self.assertEqual(reason, "application_link_not_job_specific")
+        self.assertFalse(_application_is_job_specific(generic["url"], generic["application_url"]))
+
     def test_feed_listing_never_becomes_official_apply_link(self):
         payload = [{"id": "123", "position": "Backend Engineer", "company": "Example", "url": "https://remoteok.com/remote-jobs/123", "apply_url": "https://remoteok.com/remote-jobs/123", "description": "Go services"}]
         row = normalize("remoteok", payload)[0]

@@ -70,7 +70,7 @@ def _url_allowed(url, fixture=False):
     return public_url(url)
 
 
-async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False, proxy_url=None):
+async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False, proxy_url=None, max_requests=500):
     """Explore public sites by prioritized links; returns pages, edges, checkpoints."""
     try:
         from playwright.async_api import async_playwright
@@ -93,9 +93,17 @@ async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, del
         page = await context.new_page()
         page.set_default_navigation_timeout(timeout_ms)
         active_origin = None
+        request_total = 0
+        request_limit_reached = False
         async def guard(route):
+            nonlocal request_total, request_limit_reached
             target = route.request.url
             if route.request.method in ("GET", "HEAD") and _url_allowed(target, fixture) and origin(target) == active_origin:
+                if request_total >= max_requests:
+                    request_limit_reached = True
+                    await route.abort("blockedbyclient")
+                    return
+                request_total += 1
                 await route.continue_()
             else:
                 await route.abort("blockedbyclient")
@@ -149,6 +157,7 @@ async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, del
                 host_count[host] = host_count.get(host, 0) + 1
                 try:
                     active_origin = origin(url)
+                    requests_before = request_total
                     response = await page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
                     if response is None:
                         continue
@@ -183,7 +192,11 @@ async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, del
                 fp = dom_fingerprint(html)
                 structured = inspect_html(final_url, html)
                 tech = [name for name in ("Go", "Python", "TypeScript", "Node.js", "React", "Kubernetes", "Java", "Rust", "PostgreSQL", "AWS") if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", body, re.I)]
-                row = {"url": final_url, "requested_url": url, "parent": parent, "status": status, "title": title, "fingerprint": fp, "depth": depth, "career_page": bool(classify(final_url)), "job_postings": structured["job_postings"], "career_links": structured["career_links"], "technologies": tech, "hiring_signal": bool(structured["job_postings"] or re.search(r"we.re hiring|join our team|open roles|careers", body, re.I)), "observed_at": time.time()}
+                application_links = [{"url": link.get("href"), "text": link.get("text", "")[:160]} for link in links if re.search(r"apply|application|submit (?:an? )?application", link.get("text", ""), re.I)]
+                safe_body = re.sub(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", "[email redacted]", body[:50000], flags=re.I)
+                safe_body = re.sub(r"(?<!\w)(?:\+?\d[\d ()-]{7,}\d)(?!\w)", "[phone redacted]", safe_body)
+                safe_title = re.sub(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", "[email redacted]", title, flags=re.I)
+                row = {"url": final_url, "requested_url": url, "parent": parent, "status": status, "title": safe_title, "visible_text": safe_body, "application_links": application_links, "network_requests": request_total - requests_before, "fingerprint": fp, "depth": depth, "career_page": bool(classify(final_url)), "job_postings": structured["job_postings"], "career_links": structured["career_links"], "organizations": structured.get("organizations", []), "technologies": tech, "hiring_signal": bool(structured["job_postings"] or re.search(r"we.re hiring|join our team|open roles|careers", body, re.I)), "observed_at": time.time()}
                 pages.append(row)
                 edges.append({"from": parent, "to": final_url, "kind": "navigation" if parent != url else "seed"})
                 if store:
@@ -222,15 +235,15 @@ async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, del
         finally:
             await context.close()
             await browser.close()
-    return {"pages": pages, "edges": edges, "checkpoints": checkpoints, "unique_states": len({p["fingerprint"] for p in pages})}
+    return {"pages": pages, "edges": edges, "checkpoints": checkpoints, "unique_states": len({p["fingerprint"] for p in pages}), "network_requests": request_total, "request_limit_reached": request_limit_reached}
 
 
 def explore_sync(*args, **kwargs):
     return asyncio.run(explore(*args, **kwargs))
 
 
-async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False):
+async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False, max_requests=500):
     if fixture:
-        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, fixture=True)
+        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, fixture=True, max_requests=max_requests)
     with PublicHTTPSProxy() as proxy:
-        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, proxy_url=proxy.url)
+        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, proxy_url=proxy.url, max_requests=max_requests)

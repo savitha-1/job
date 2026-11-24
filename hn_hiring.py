@@ -130,47 +130,22 @@ def fetch_latest(*, max_comments=1200):
 
 
 def verify_candidate(row, *, timeout=5, max_bytes=3 * 1024 * 1024, robots_cache=None):
-    """GET candidate links and require matching employer/title JSON-LD data."""
+    """Compatibility API backed by the shared multi-strategy verifier."""
+    from vacancy_verifier import verify_url
     cache = robots_cache if robots_cache is not None else {}
-    for url in row.get("candidate_urls", [])[:10]:
-        if not public_url(url):
-            continue
-        try:
-            if not _allowed_by_robots(url, "LocalJobResearch/0.1", cache):
-                continue
-            request = Request(url, headers={"User-Agent": "LocalJobResearch/0.1 (read-only public vacancy verification)", "Accept": "text/html,application/xhtml+xml"})
-            with PublicHTTPSProxy() as proxy:
-                opener = build_public_opener(proxy.url)
-                opener.add_handler(_SameOriginRedirects())
-                with opener.open(request, timeout=timeout) as response:
-                    if response.status != 200 or "text/html" not in response.headers.get("Content-Type", "").lower():
-                        continue
-                    body = response.read(max_bytes + 1)
-                    final_url = response.geturl()
-            if len(body) > max_bytes or not public_url(final_url):
-                continue
-            parsed = inspect_html(final_url, body.decode("utf-8", "replace"))
-            for job in parsed["job_postings"]:
-                org = job.get("organization") or {}
-                org_name = org.get("name", "") if isinstance(org, dict) else ""
-                if _norm(job.get("title")) != _norm(row.get("title")) or _norm(org_name) != _norm(row.get("employer")):
-                    continue
-                valid_through = job.get("valid_through")
-                if valid_through:
-                    try:
-                        if dt.datetime.fromisoformat(valid_through.replace("Z", "+00:00")) < dt.datetime.now(dt.timezone.utc):
-                            continue
-                    except ValueError:
-                        continue
-                application = job.get("application_url")
-                if not application or not public_url(application):
-                    continue
-                return {"verified": True, "employer": row["employer"], "title": row["title"], "vacancy_url": job.get("vacancy_url") or final_url,
-                        "application_url": application, "evidence_url": final_url, "evidence_type": "matching_schema_org_jobposting",
-                        "organization_evidence": org_name, "valid_through": valid_through, "observed_at": dt.datetime.now(dt.timezone.utc).isoformat()}
-        except Exception as exc:
-            return {"verified": False, "reason": type(exc).__name__, "candidate_url": url}
-    return {"verified": False, "reason": "no_matching_active_structured_vacancy"}
+    failures = []
+    target = {**row, "source": row.get("source", "hn_whoishiring"),
+              "source_id": row.get("source_id", row.get("id", "legacy"))}
+    for url in row.get("candidate_urls", []):
+        result = verify_url(target, url, timeout=timeout, max_bytes=max_bytes, robots_cache=cache)
+        if result.get("verified"):
+            evidence = result["evidence"]
+            return {**result, "employer": evidence["employer"], "title": evidence["title"],
+                    "vacancy_url": evidence["vacancy_url"], "application_url": evidence["application_url"],
+                    "evidence_url": evidence["evidence_url"], "india_eligibility": evidence["india_eligibility"]}
+        failures.append({"url": url, "reason": result.get("reason"), "method": result.get("method"),
+                         "retryable": result.get("retryable", False), "alternatives": result.get("alternatives", [])})
+    return {"verified": False, "reason": "no_candidate_link_verified", "failures": failures}
 
 
 def _norm(value):

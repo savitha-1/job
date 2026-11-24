@@ -13,7 +13,7 @@ from job_sources import SOURCES, fetch, freshness
 from relevance import score_job
 
 
-def discover(skills, sources=None):
+def discover(skills, sources=None, *, verification_state_path=None, max_verification_urls=60, max_verification_requests=240):
     started = time.monotonic()
     observed = dt.datetime.now(dt.timezone.utc).isoformat()
     results, errors, records, company_leads = {}, [], [], []
@@ -58,14 +58,13 @@ def discover(skills, sources=None):
         hn = fetch_latest(max_comments=1200)
         hn_rows = hn["opportunities"]
         hn_relevant = []
-        hn_verified = []
-        verification_failures = {}
         for row in hn_rows:
             relevance = score_job(row, skills)
             if not relevance["relevant"]:
                 continue
             eligibility, evidence = eligibility_evidence(row.get("location"), row.get("description"), title=row.get("title"))
             hn_relevant.append({"company": row["employer"], "official_website": None, "title": row["title"],
+                "source": row["source"], "source_id": row["source_id"], "employer": row["employer"],
                 "source_listing_url": row["source_url"], "direct_application_url": row.get("official_url"),
                 "candidate_application_urls": row.get("candidate_urls", []), "work_location": row.get("location") or "Unknown",
                 "india_eligibility": eligibility, "eligibility_evidence": evidence, "technical_matches": relevance["matches"],
@@ -74,34 +73,22 @@ def discover(skills, sources=None):
                 "discovery_source": row["source_name"], "source_credit": row["source_credit"],
                 "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
                 "official_employer_application_verified": False, "thread_url": row.get("thread_url"), "source_evidence": row.get("evidence")})
-        # Keep live verification deliberately small: only explicitly linked,
-        # robots-allowed pages are fetched, and only matching employer+title
-        # structured vacancies with a distinct applicationUrl are promoted.
-        from hn_hiring import verify_candidate
-        shared_robots_cache = {}
-        verification_attempts = 0
-        for candidate in (row for row in hn_relevant if row.get("candidate_application_urls")):
-            if verification_attempts >= 3:
-                break
-            verification_attempts += 1
-            probe = {"employer": candidate["company"], "title": candidate["title"], "candidate_urls": candidate["candidate_application_urls"][:1]}
-            checked = verify_candidate(probe, timeout=5, robots_cache=shared_robots_cache)
-            if checked.get("verified"):
-                hn_verified.append({**candidate, "official_website": None, "employer_evidence_url": checked["evidence_url"],
-                    "direct_application_url": checked["application_url"], "source_listing_url": checked["vacancy_url"],
-                    "india_eligibility": "unknown", "eligibility_evidence": [], "official_employer_application_verified": True,
-                    "source_status": "matching public Schema.org JobPosting verified; India eligibility remains unknown",
-                    "vacancy_verified": True, "vacancy_evidence_url": checked["evidence_url"], "observed_at": checked["observed_at"]})
-            else:
-                reason = checked.get("reason", "not_verified")
-                verification_failures[reason] = verification_failures.get(reason, 0) + 1
+        if verification_state_path is None:
+            verification_state_path = Path.home() / ".cache" / "job-intelligence" / "verification.sqlite3"
+        from verification_pipeline import run_verification_batch
+        verified_batch = run_verification_batch(hn_relevant, verification_state_path, skills,
+            max_urls=max_verification_urls, max_requests=max_verification_requests)
+        hn_verified = verified_batch["verified_opportunities"]
         records.extend(hn_relevant)
         records.extend(hn_verified)
         results["hn_whoishiring"] = {"thread": hn.get("thread"), "comments_read": hn["comments_read"],
             "top_level_comments": hn.get("top_level_comments", 0), "engineering_role_leads": len(hn_relevant),
             "candidate_external_links": sum(bool(x["candidate_application_urls"]) for x in hn_relevant),
-            "verification_attempts": verification_attempts,
-            "verification_failure_reasons": verification_failures,
+            "verification_urls_processed_this_run": verified_batch["processed_urls"],
+            "network_requests": verified_batch["requests_used"], "bytes_read": verified_batch["bytes_read"],
+            "elapsed_seconds": verified_batch["elapsed_seconds"],
+            "verification_failure_reasons": verified_batch["failure_reasons"],
+            "verification_frontier": verified_batch["frontier"],
             "verified_employer_vacancies": len(hn_verified), "verified_official_application_urls": len(hn_verified)}
     except Exception as exc:
         errors.append({"source": "hn_whoishiring", "error": type(exc).__name__})
@@ -217,11 +204,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="reports/latest-discovery.json")
     parser.add_argument("--csv-output", default="reports/latest-discovery.csv")
+    parser.add_argument("--verification-db", default=str(Path.home() / ".cache" / "job-intelligence" / "verification.sqlite3"))
+    parser.add_argument("--max-verification-urls", type=int, default=60)
+    parser.add_argument("--max-verification-requests", type=int, default=240)
     parser.add_argument("--source", action="append", choices=list(SOURCES))
     parser.add_argument("--skill", action="append", default=[])
     args = parser.parse_args()
     skills = args.skill or ["Go", "Python", "TypeScript", "Node.js", "React", "Kubernetes", "PostgreSQL", "AWS"]
-    report = discover(skills, args.source)
+    report = discover(skills, args.source, verification_state_path=args.verification_db,
+                      max_verification_urls=args.max_verification_urls,
+                      max_verification_requests=args.max_verification_requests)
     target = Path(args.output)
     target.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
     target.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

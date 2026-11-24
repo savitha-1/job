@@ -39,9 +39,16 @@ Aggregator entries remain source observations; they are not called official
 vacancies or employer application URLs. GitHub profiles remain unverified
 company leads. “India eligibility signal” is distinct from a verified,
 applicable opportunity; unknown remains unknown.
-HN outbound links are only candidates: the bounded verifier checks robots policy
-and requires a matching employer/title Schema.org JobPosting plus explicit
-application URL before promoting an opportunity.
+HN outbound links are only candidates: the durable verifier checks every
+first-link lead before secondary links, follows public ATS APIs when available,
+then checks permitted static HTML and a bounded Playwright rendering. It records
+identity, title, current-vacancy and job-specific application evidence; robots
+denials, closed pages and human-verification gates are not bypassed. Pending URLs
+are retained in `~/.cache/job-intelligence/verification.sqlite3`. Tune each run
+with `--max-verification-urls` and `--max-verification-requests`.
+
+The multi-strategy live run and its JSON/CSV results are recorded in
+[VERIFICATION.md](VERIFICATION.md) and [reports/critical-discovery-2026-11-25.json](reports/critical-discovery-2026-11-25.json).
 
 Run bounded read-only dynamic exploration of a public HTTPS career site:
 
