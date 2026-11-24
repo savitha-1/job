@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.sqlite*
+*.db
+.venv/
+.worker/
+data/
+.env
+.env.*
+resume.*
+profile.json
+opportunities.json

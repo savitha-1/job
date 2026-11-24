@@ -11,6 +11,7 @@ class EvidenceParser(HTMLParser):
         self.url=url
         self.links=set()
         self.jobs=[]
+        self.organizations=[]
         self.script=False
         self.buffer=[]
     def handle_starttag(self, tag, attrs):
@@ -41,7 +42,16 @@ class EvidenceParser(HTMLParser):
             if isinstance(types,str):
                 types=[types]
             if "JobPosting" in types and obj.get("title"):
-                self.jobs.append({"title":obj["title"],"evidence_url":self.url,"application_url":obj.get("url"),"location":obj.get("jobLocation"),"applicant_location":obj.get("applicantLocationRequirements"),"remote":obj.get("jobLocationType"),"date_posted":obj.get("datePosted"),"valid_through":obj.get("validThrough"),"salary":obj.get("baseSalary"),"organization":obj.get("hiringOrganization"),"status":"unverified"})
+                vacancy_url=urljoin(self.url,str(obj["url"])) if obj.get("url") else self.url
+                vacancy_url=vacancy_url if urlsplit(vacancy_url).scheme=="https" and urlsplit(vacancy_url).hostname else None
+                # Schema.org JobPosting.url is the vacancy page, not necessarily its
+                # application form. Only non-standard explicit applyUrl is a lead.
+                apply_url=obj.get("applyUrl") or obj.get("applicationUrl")
+                apply_url=urljoin(self.url,str(apply_url)) if apply_url else None
+                apply_url=apply_url if apply_url and urlsplit(apply_url).scheme=="https" and urlsplit(apply_url).hostname else None
+                self.jobs.append({"title":obj["title"],"evidence_url":self.url,"vacancy_url":vacancy_url,"application_url":apply_url,"location":obj.get("jobLocation"),"applicant_location":obj.get("applicantLocationRequirements"),"remote":obj.get("jobLocationType"),"date_posted":obj.get("datePosted"),"valid_through":obj.get("validThrough"),"salary":obj.get("baseSalary"),"organization":obj.get("hiringOrganization"),"direct_apply":obj.get("directApply"),"status":"unverified"})
+            if "Organization" in types and obj.get("name"):
+                self.organizations.append({"name":obj.get("name"),"url":obj.get("url"),"sameAs":obj.get("sameAs")})
             for key in ("@graph","mainEntity","itemListElement","item"):
                 if key in obj:
                     self.extract(obj[key])
@@ -50,7 +60,7 @@ def inspect_html(url,html):
     parser=EvidenceParser(url)
     parser.feed(html)
     parser.close()
-    return {"career_links":sorted(parser.links),"job_postings":parser.jobs}
+    return {"career_links":sorted(parser.links),"job_postings":parser.jobs,"organizations":parser.organizations}
 
 if __name__=="__main__":
     import argparse
