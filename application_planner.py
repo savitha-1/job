@@ -28,6 +28,8 @@ def classify(field):
 def plan(fields, profile):
     actions, review = [], []
     for field in fields:
+        if field.get("disabled"):
+            continue
         key=classify(field)
         value=profile.get(key) if key else None
         if not value or field.get("type") not in ("text","email","tel","url","file","textarea"):

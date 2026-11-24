@@ -41,7 +41,9 @@ class EvidenceParser(HTMLParser):
             if isinstance(types,str):
                 types=[types]
             if "JobPosting" in types and obj.get("title"):
-                self.jobs.append({"title":obj["title"],"evidence_url":self.url,"application_url":obj.get("url"),"location":obj.get("jobLocation"),"applicant_location":obj.get("applicantLocationRequirements"),"remote":obj.get("jobLocationType"),"date_posted":obj.get("datePosted"),"valid_through":obj.get("validThrough"),"salary":obj.get("baseSalary"),"organization":obj.get("hiringOrganization"),"status":"unverified"})
+                apply_url=urljoin(self.url,str(obj["url"])) if obj.get("url") else None
+                apply_url=apply_url if apply_url and urlsplit(apply_url).scheme=="https" and urlsplit(apply_url).hostname else None
+                self.jobs.append({"title":obj["title"],"evidence_url":self.url,"application_url":apply_url,"location":obj.get("jobLocation"),"applicant_location":obj.get("applicantLocationRequirements"),"remote":obj.get("jobLocationType"),"date_posted":obj.get("datePosted"),"valid_through":obj.get("validThrough"),"salary":obj.get("baseSalary"),"organization":obj.get("hiringOrganization"),"status":"unverified"})
             for key in ("@graph","mainEntity","itemListElement","item"):
                 if key in obj:
                     self.extract(obj[key])

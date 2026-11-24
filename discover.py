@@ -24,6 +24,10 @@ def endpoint(source, board):
 def clean(text):
     return html.unescape(re.sub(r"<[^>]+>", " ", str(text or "")))
 
+def redact_contacts(text):
+    text = re.sub(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", "[email redacted]", str(text), flags=re.I)
+    return re.sub(r"(?<!\w)(?:\+?\d[\d ()-]{7,}\d)(?!\w)", "[phone redacted]", text)
+
 def normalize(source, board, data):
     rows = data if source.startswith("lever") else data["jobs"]
     result = []
@@ -38,7 +42,7 @@ def normalize(source, board, data):
             title, location, url, desc = j.get("title"), j.get("location"), j.get("applyUrl") or j.get("jobUrl"), j.get("descriptionPlain")
         if not title or not url or urlsplit(url).scheme != "https" or not urlsplit(url).hostname:
             continue
-        result.append(dict(source=source, board=board, id=j.get("id") or url, title=title, location=location or "", description=clean(desc), application_url=url, evidence_url=endpoint(source,board), observed_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), published_at=j.get("publishedAt"), compensation=j.get("compensation") or j.get("salaryRange")))
+        result.append(dict(source=source, board=board, id=j.get("id") or url, title=title, location=location or "", description=redact_contacts(clean(desc)), application_url=url, evidence_url=endpoint(source,board), observed_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), published_at=j.get("publishedAt"), compensation=j.get("compensation") or j.get("salaryRange")))
     return result
 
 def fetch(source, board):
