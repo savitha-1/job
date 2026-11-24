@@ -4,9 +4,16 @@ import json
 from urllib.error import HTTPError
 from urllib.parse import quote, urlsplit
 from urllib.request import Request
+import time
 
 from activity_discovery import ingest_stream
 from network_guard import PublicHTTPSProxy, build_public_opener, public_url
+
+
+class GitHubRateLimited(RuntimeError):
+    def __init__(self, reset_at=None):
+        self.reset_at = int(reset_at) if str(reset_at or "").isdigit() else None
+        super().__init__("GitHub public API rate limit reached")
 
 
 def latest_completed_hour(now=None, delay_hours=3):
@@ -49,10 +56,22 @@ def resolve_public_organization(login, *, token=None, timeout=15):
     try:
         with PublicHTTPSProxy() as proxy:
             with build_public_opener(proxy.url).open(request, timeout=timeout) as response:
+                remaining = response.headers.get("X-RateLimit-Remaining")
+                reset = response.headers.get("X-RateLimit-Reset")
+                if remaining == "0":
+                    raise GitHubRateLimited(reset)
                 body = response.read(512 * 1024 + 1)
     except HTTPError as exc:
         if exc.code in (404, 410):
             return None
+        if exc.code in (403, 429) and (exc.headers.get("X-RateLimit-Remaining") == "0" or exc.headers.get("Retry-After")):
+            reset = exc.headers.get("X-RateLimit-Reset")
+            if not reset and exc.headers.get("Retry-After"):
+                try:
+                    reset = int(time.time()) + int(exc.headers["Retry-After"])
+                except ValueError:
+                    reset = None
+            raise GitHubRateLimited(reset) from exc
         raise
     if len(body) > 512 * 1024:
         raise ValueError("GitHub organization profile exceeds response budget")

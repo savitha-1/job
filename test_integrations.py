@@ -1,4 +1,5 @@
 import gzip
+import io
 import json
 import tempfile
 import unittest
@@ -12,6 +13,11 @@ from network_guard import origin, resolve_public
 from web_evidence import inspect_html
 
 
+class _FakeHTTPResponse(io.BytesIO):
+    status = 200
+    headers = {"Content-Length": "2"}
+
+
 class FakeMailbox:
     def __init__(self, messages):
         self.messages = messages
@@ -23,8 +29,19 @@ class FakeMailbox:
 
 
 class IntegrationTests(unittest.TestCase):
+    def test_common_crawl_success_cache_prevents_repeat_fetch(self):
+        from unittest.mock import patch
+        import archive_discovery
+        response = _FakeHTTPResponse(b"{}")
+        opener = type("Opener", (), {"open": lambda self, *a, **k: response})()
+        with tempfile.TemporaryDirectory() as d, patch.object(archive_discovery, "build_public_opener", return_value=opener) as make_opener, patch.object(archive_discovery, "PublicHTTPSProxy") as proxy:
+            proxy.return_value.__enter__.return_value.url = "http://127.0.0.1:1234"
+            self.assertEqual(archive_discovery.get("https://index.commoncrawl.org/test", cache_dir=d), "{}")
+            self.assertEqual(archive_discovery.get("https://index.commoncrawl.org/test", cache_dir=d), "{}")
+            self.assertEqual(make_opener.call_count, 1)
+
     def test_public_activity_lead_is_provenanced_and_unverified(self):
-        row = {"type": "PushEvent", "created_at": "2026-11-24T00:00:00Z", "repo": {"name": "acme/platform"}, "payload": {"commits": [{"message": "Python and Kubernetes backend"}]}}
+        row = {"type": "PushEvent", "created_at": "2026-11-24T00:00:00Z", "org": {"login": "acme"}, "repo": {"name": "acme/platform"}, "payload": {"commits": [{"message": "Python and Kubernetes backend"}]}}
         with tempfile.TemporaryDirectory() as d:
             path = Path(d) / "events.json.gz"
             with gzip.open(path, "wt", encoding="utf-8") as out:
@@ -35,6 +52,19 @@ class IntegrationTests(unittest.TestCase):
         self.assertFalse(lead["verified_employer"])
         self.assertIn("Python", lead["technologies"])
         self.assertIn("Kubernetes", lead["technologies"])
+
+    def test_repository_user_is_not_promoted_to_employer_lead(self):
+        from io import BytesIO
+        from activity_discovery import ingest_stream
+        row = {"type": "PushEvent", "repo": {"name": "alice/project"}, "payload": {"commits": [{"message": "Hiring Python engineer"}]}}
+        self.assertEqual(ingest_stream(BytesIO((json.dumps(row) + "\n").encode()))["leads"], [])
+
+    def test_commit_message_does_not_count_as_hiring_signal(self):
+        from io import BytesIO
+        from activity_discovery import ingest_stream
+        row = {"type": "PushEvent", "org": {"login": "acme"}, "repo": {"name": "acme/project"}, "payload": {"commits": [{"message": "We are hiring Python engineers"}]}}
+        result = ingest_stream(BytesIO((json.dumps(row) + "\n").encode()))
+        self.assertEqual(result["leads"][0]["hiring_signals"], 0)
 
     def test_jsonld_job_posting_and_career_links(self):
         html = '<a href="/careers">Jobs</a><script type="application/ld+json">{"@type":"JobPosting","title":"Backend Engineer","applicantLocationRequirements":{"@type":"Country","name":"India"}}</script>'

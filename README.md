@@ -29,15 +29,19 @@ Run a bounded cross-source global discovery snapshot and write a ranked public
 opportunity report (no candidate data is uploaded):
 
 ```sh
-python live_discovery.py --output reports/latest-discovery.json
+python live_discovery.py --output reports/latest-discovery.json --csv-output reports/latest-discovery.csv
 ```
 
-The snapshot reads Arbeitnow (Germany and UK), Remote OK, Jobicy, one capped
-recent GH Archive hour, and up to 12 public GitHub organization profiles.
+The snapshot reads Arbeitnow (Germany and UK), Remote OK, Jobicy, the current
+Hacker News Who-is-Hiring thread, one capped recent GH Archive hour, and up to
+12 public GitHub organization profiles (stopping early if rate-limited).
 Aggregator entries remain source observations; they are not called official
 vacancies or employer application URLs. GitHub profiles remain unverified
 company leads. “India eligibility signal” is distinct from a verified,
 applicable opportunity; unknown remains unknown.
+HN outbound links are only candidates: the bounded verifier checks robots policy
+and requires a matching employer/title Schema.org JobPosting plus explicit
+application URL before promoting an opportunity.
 
 Run bounded read-only dynamic exploration of a public HTTPS career site:
 

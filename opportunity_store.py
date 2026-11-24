@@ -28,7 +28,7 @@ class OpportunityStore:
             db.executescript("""
                 PRAGMA journal_mode=WAL;
                 CREATE TABLE IF NOT EXISTS discovery_runs(id INTEGER PRIMARY KEY, started REAL NOT NULL, finished REAL, state TEXT NOT NULL, source_results TEXT NOT NULL DEFAULT '{}', error TEXT);
-                CREATE TABLE IF NOT EXISTS employer_records(employer_key TEXT PRIMARY KEY,name TEXT NOT NULL,first_seen REAL NOT NULL,last_seen REAL NOT NULL,sources TEXT NOT NULL DEFAULT '[]',country_hints TEXT NOT NULL DEFAULT '[]');
+                CREATE TABLE IF NOT EXISTS employer_records(employer_key TEXT PRIMARY KEY,name TEXT NOT NULL,first_seen REAL NOT NULL,last_seen REAL NOT NULL,sources TEXT NOT NULL DEFAULT '[]',country_hints TEXT NOT NULL DEFAULT '[]',identity_basis TEXT NOT NULL DEFAULT 'unresolved_lead');
                 CREATE TABLE IF NOT EXISTS company_graph_nodes(node_key TEXT PRIMARY KEY,node_type TEXT NOT NULL,label TEXT NOT NULL,source TEXT NOT NULL,metadata TEXT NOT NULL,observed REAL NOT NULL);
                 CREATE TABLE IF NOT EXISTS company_graph_edges(source_key TEXT NOT NULL,target_key TEXT NOT NULL,relation TEXT NOT NULL,evidence_url TEXT NOT NULL,confidence REAL NOT NULL,observed REAL NOT NULL,PRIMARY KEY(source_key,target_key,relation,evidence_url));
                 CREATE TABLE IF NOT EXISTS source_cache(cache_key TEXT PRIMARY KEY,fetched REAL NOT NULL,payload TEXT NOT NULL);
@@ -40,6 +40,9 @@ class OpportunityStore:
             columns = {row[1] for row in db.execute("PRAGMA table_info(opportunities)")}
             if "vacancy_verified" not in columns:
                 db.execute("ALTER TABLE opportunities ADD COLUMN vacancy_verified INTEGER NOT NULL DEFAULT 0")
+            employer_columns = {row[1] for row in db.execute("PRAGMA table_info(employer_records)")}
+            if "identity_basis" not in employer_columns:
+                db.execute("ALTER TABLE employer_records ADD COLUMN identity_basis TEXT NOT NULL DEFAULT 'unresolved_lead'")
             db.commit()
 
     def connect(self):
@@ -53,20 +56,27 @@ class OpportunityStore:
             cur = db.execute("INSERT INTO discovery_runs(started,state) VALUES(?,?)", (time.time(), "running"))
             return cur.lastrowid
 
-    def save_company_lead(self, *, name, source, evidence_url, homepage_claim=None, metadata=None, verified_employer=False):
+    def save_company_lead(self, *, name, source, evidence_url, homepage_claim=None, metadata=None, verified_employer=False, identity_key=None):
         """Store provenance-bearing employer candidates without implying employer verification."""
-        key = employer_key(name)
+        name_key = employer_key(name)
+        domain = urlsplit(homepage_claim).hostname.casefold() if homepage_claim and public_https_url(homepage_claim) else None
+        if verified_employer and domain:
+            key = "company:domain:" + domain
+        elif identity_key:
+            key = "company:identity:" + re.sub(r"[^a-z0-9._:-]+", "-", str(identity_key).casefold())[:180]
+        else:
+            key = "lead:" + source + ":" + hashlib.sha256((name_key + "\0" + evidence_url).encode()).hexdigest()
         now = time.time()
         lead_type = "verified_employer" if verified_employer else "unverified_company_lead"
         with closing(self.connect()) as db, db:
-            db.execute("INSERT INTO company_graph_nodes VALUES(?,?,?,?,?,?) ON CONFLICT(node_key) DO UPDATE SET observed=excluded.observed,metadata=excluded.metadata,node_type=CASE WHEN excluded.node_type='verified_employer' THEN excluded.node_type ELSE company_graph_nodes.node_type END", ("company:" + key, lead_type, name[:200], source, json.dumps(metadata or {}, ensure_ascii=False), now))
+            db.execute("INSERT INTO company_graph_nodes VALUES(?,?,?,?,?,?) ON CONFLICT(node_key) DO UPDATE SET observed=excluded.observed,metadata=excluded.metadata,node_type=CASE WHEN excluded.node_type='verified_employer' THEN excluded.node_type ELSE company_graph_nodes.node_type END", (key, lead_type, name[:200], source, json.dumps(metadata or {}, ensure_ascii=False), now))
             source_key = "evidence:" + hashlib.sha256((source + evidence_url).encode()).hexdigest()
             db.execute("INSERT OR IGNORE INTO company_graph_nodes VALUES(?,?,?,?,?,?)", (source_key, "evidence", source, source, "{}", now))
-            db.execute("INSERT OR IGNORE INTO company_graph_edges VALUES(?,?,?,?,?,?)", ("company:" + key, source_key, "observed_in", evidence_url, 1.0, now))
+            db.execute("INSERT OR IGNORE INTO company_graph_edges VALUES(?,?,?,?,?,?)", (key, source_key, "observed_in", evidence_url, 1.0, now))
             if homepage_claim and public_https_url(homepage_claim):
                 domain_key = "domain:" + urlsplit(homepage_claim).hostname.casefold()
                 db.execute("INSERT OR IGNORE INTO company_graph_nodes VALUES(?,?,?,?,?,?)", (domain_key, "unverified_domain_claim", urlsplit(homepage_claim).hostname, source, "{}", now))
-                db.execute("INSERT OR IGNORE INTO company_graph_edges VALUES(?,?,?,?,?,?)", ("company:" + key, domain_key, "claims_homepage", evidence_url, 0.35, now))
+                db.execute("INSERT OR IGNORE INTO company_graph_edges VALUES(?,?,?,?,?,?)", (key, domain_key, "claims_homepage", evidence_url, 0.35, now))
         return key
 
     def graph_summary(self):
@@ -96,7 +106,18 @@ class OpportunityStore:
             db.execute("UPDATE opportunities SET source_active=0 WHERE source=?", (source,))
 
     def save_opportunity(self, row, skills):
-        key = employer_key(row["employer"])
+        domain = row.get("employer_domain")
+        if domain and row.get("employer_domain_verified"):
+            host = urlsplit(domain if "://" in domain else "https://" + domain).hostname
+            key, identity_basis = "domain:" + host.casefold(), "verified_domain"
+        elif row.get("company_identity"):
+            key, identity_basis = "identity:" + str(row["company_identity"]).casefold(), "stable_source_identity"
+        else:
+            # Do not merge unrelated companies with the same display name.
+            # Until domain/organization evidence exists, this is one lead per
+            # source requisition, not a claim that two leads share an employer.
+            key = "lead:" + hashlib.sha256((str(row["source"]) + "\0" + str(row["source_id"])).encode()).hexdigest()
+            identity_basis = "unresolved_lead"
         observed = time.time()
         freshness_label = freshness(row)
         eligibility, evidence = eligibility_evidence(row.get("location"), row.get("description"), title=row.get("title"))
@@ -108,11 +129,11 @@ class OpportunityStore:
         public_payload = dict(row)
         public_payload["relevance"] = relevance
         with closing(self.connect()) as db, db:
-            db.execute("""INSERT INTO employer_records(employer_key,name,first_seen,last_seen,sources,country_hints) VALUES(?,?,?,?,?,?)
+            db.execute("""INSERT INTO employer_records(employer_key,name,first_seen,last_seen,sources,country_hints,identity_basis) VALUES(?,?,?,?,?,?,?)
                 ON CONFLICT(employer_key) DO UPDATE SET last_seen=excluded.last_seen,
                 sources=json_insert(employer_records.sources,'$[#]',json_extract(excluded.sources,'$[0]')),
                 country_hints=CASE WHEN excluded.country_hints='[]' THEN employer_records.country_hints ELSE excluded.country_hints END""",
-                (key, row["employer"], observed, observed, json.dumps([row["source"]]), json.dumps([row["location"]] if row.get("location") else [])))
+                (key, row["employer"], observed, observed, json.dumps([row["source"]]), json.dumps([row["location"]] if row.get("location") else []), identity_basis))
             db.execute("""INSERT INTO opportunities(id,employer_key,source,source_id,title,location,description,source_url,official_url,published_at,observed_at,freshness,eligibility,eligibility_evidence,tech_matches,source_active,vacancy_verified,official_url_verified,payload) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                 ON CONFLICT(source,source_id) DO UPDATE SET title=excluded.title,location=excluded.location,description=excluded.description,source_url=excluded.source_url,official_url=excluded.official_url,published_at=excluded.published_at,observed_at=excluded.observed_at,freshness=excluded.freshness,eligibility=excluded.eligibility,eligibility_evidence=excluded.eligibility_evidence,tech_matches=excluded.tech_matches,source_active=excluded.source_active,vacancy_verified=excluded.vacancy_verified,official_url_verified=excluded.official_url_verified,payload=excluded.payload""",
                 (row_id,key,row["source"],str(row["source_id"]),row["title"],row.get("location", ""),row.get("description", ""),row["source_url"],row.get("official_url"),row.get("published_at"),row.get("observed_at", ""),freshness_label,eligibility,json.dumps(evidence),json.dumps(matches),1,int(vacancy_verified),int(is_verified),json.dumps(public_payload,ensure_ascii=False)))
@@ -137,7 +158,8 @@ class OpportunityStore:
 
     def stats(self):
         with closing(self.connect()) as db:
-            employer_count = db.execute("SELECT count(*) FROM (SELECT employer_key AS k FROM employer_records UNION SELECT substr(node_key,9) AS k FROM company_graph_nodes WHERE node_type IN ('unverified_company_lead','verified_employer'))").fetchone()[0]
+            employer_count = db.execute("SELECT count(*) FROM employer_records WHERE identity_basis IN ('verified_domain','stable_source_identity')").fetchone()[0] + db.execute("SELECT count(*) FROM company_graph_nodes WHERE node_type='verified_employer'").fetchone()[0]
+            provisional_count = db.execute("SELECT count(*) FROM employer_records WHERE identity_basis='unresolved_lead'").fetchone()[0] + db.execute("SELECT count(*) FROM company_graph_nodes WHERE node_type='unverified_company_lead'").fetchone()[0]
             vacancy_count = db.execute("SELECT count(*) FROM opportunities WHERE source_active=1").fetchone()[0]
             verified_count = db.execute("SELECT count(*) FROM opportunities WHERE vacancy_verified=1 AND source_active=1").fetchone()[0]
             official_active_count = db.execute("SELECT count(*) FROM opportunities WHERE official_url_verified=1 AND source_active=1").fetchone()[0]
@@ -147,7 +169,7 @@ class OpportunityStore:
             runs = db.execute("SELECT * FROM discovery_runs ORDER BY id DESC LIMIT 20").fetchall()
             return {"employers_discovered": employer_count, "source_active_vacancies": vacancy_count,
                     "verified_employers": db.execute("SELECT count(*) FROM company_graph_nodes WHERE node_type='verified_employer'").fetchone()[0],
-                    "unverified_company_leads": db.execute("SELECT count(*) FROM company_graph_nodes WHERE node_type='unverified_company_lead'").fetchone()[0],
+                    "unverified_company_leads": provisional_count,
                     "verified_vacancies": verified_count,
                     "official_apply_urls": official_active_count,
                     "official_ats_vacancies": official_active_count,

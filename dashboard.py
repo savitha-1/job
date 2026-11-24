@@ -221,6 +221,23 @@ class ProductService:
                         errors.append(f"{source}: {type(exc).__name__}")
                         source_results[source] = {"error": type(exc).__name__}
 
+            # Add the independent monthly employer-authored source to the same
+            # persistent opportunity ledger. Its claims stay unverified until
+            # the public employer/ATS crawl below corroborates them.
+            if not self.workflows.control().get("paused") and not self.workflows.control().get("stopped"):
+                try:
+                    from hn_hiring import fetch_latest
+                    hn = fetch_latest(max_comments=1200)
+                    saved = 0
+                    for row in hn["opportunities"]:
+                        if score_job(row, skills)["relevant"]:
+                            self.discovery.save_opportunity(row, skills)
+                            saved += 1
+                    source_results["hn_whoishiring"] = {"thread": hn.get("thread"), "comments_read": hn["comments_read"], "top_level_comments": hn["top_level_comments"], "engineering_role_leads_saved": saved, "verified_vacancies": 0}
+                except Exception as exc:
+                    errors.append("hn_whoishiring: " + type(exc).__name__)
+                    source_results["hn_whoishiring"] = {"error": type(exc).__name__}
+
             # GH Archive provides public engineering activity, not proof of an
             # employer. Resolve a small, high-signal sample through GitHub's org
             # API and preserve every result as an unverified company lead.
@@ -230,15 +247,43 @@ class ProductService:
                     activity = fetch_hour(compressed_limit=8 * 1024 * 1024, expanded_limit=48 * 1024 * 1024, max_events=60_000)
                     ranked_leads = sorted(activity["leads"], key=lambda x: (x["hiring_signals"], sum(x["technologies"].values()), x["event_count"]), reverse=True)
                     resolved = 0
+                    homepage_seeds = []
+                    rate_cooldown = self.discovery.cached("github_org_rate_limit", 24 * 3600)
                     for lead in ranked_leads[:15]:
                         if self.workflows.control().get("paused") or self.workflows.control().get("stopped"):
                             break
-                        org = resolve_public_organization(lead["organization"])
+                        if rate_cooldown and rate_cooldown.get("retry_at", 0) > time.time():
+                            break
+                        cache_key = "github_org:" + lead["organization"].casefold()
+                        org = self.discovery.cached(cache_key, 7 * 86400)
+                        if org is None:
+                            try:
+                                org = resolve_public_organization(lead["organization"])
+                            except Exception as exc:
+                                from gharchive_live import GitHubRateLimited
+                                if isinstance(exc, GitHubRateLimited):
+                                    retry_at = exc.reset_at or int(time.time()) + 3600
+                                    self.discovery.cache("github_org_rate_limit", {"retry_at": retry_at})
+                                    rate_cooldown = {"retry_at": retry_at}
+                                    break
+                                raise
+                            if org:
+                                self.discovery.cache(cache_key, org)
                         if not org:
                             continue
-                        self.discovery.save_company_lead(name=org["name"], source="github_org_api", evidence_url=org["evidence_url"], homepage_claim=org["homepage_claim"], metadata={"github_login": org["login"], "location": org["location"], "public_repos": org["public_repos"], "event_count": lead["event_count"], "hiring_signals": lead["hiring_signals"], "technologies": lead["technologies"]})
+                        self.discovery.save_company_lead(name=org["name"], source="github_org_api", evidence_url=org["evidence_url"], homepage_claim=org["homepage_claim"], identity_key="github:" + org["login"], metadata={"github_login": org["login"], "location": org["location"], "public_repos": org["public_repos"], "event_count": lead["event_count"], "hiring_signals": lead["hiring_signals"], "technologies": lead["technologies"]})
                         resolved += 1
+                        if org.get("homepage_claim") and len(homepage_seeds) < 3:
+                            homepage_seeds.append(org["homepage_claim"])
+                    crawl_result = None
+                    if homepage_seeds and not self.workflows.control().get("paused") and not self.workflows.control().get("stopped"):
+                        from discovery_state import DiscoveryStore
+                        from web_crawler import explore_sync
+                        crawl_result = explore_sync(homepage_seeds, store=DiscoveryStore(self.db_path), max_pages=12, max_depth=2, per_host=3, delay=1.0)
                     source_results["gharchive_live"] = {"hour_utc": activity["hour_utc"], "events_read": activity["events_read"], "engineering_leads": len(activity["leads"]), "org_profiles_resolved": resolved, "employer_verified": 0, "vacancies_verified": 0}
+                    source_results["gharchive_live"]["homepage_claims_crawled"] = len(homepage_seeds)
+                    if crawl_result is not None:
+                        source_results["gharchive_live"]["crawl"] = {"pages_loaded": len(crawl_result["pages"]), "job_postings_extracted": sum(len(page["job_postings"]) for page in crawl_result["pages"]), "human_checkpoints": len(crawl_result["checkpoints"])}
                 except Exception as exc:
                     errors.append("gharchive_live: " + type(exc).__name__)
                     source_results["gharchive_live"] = {"error": type(exc).__name__}

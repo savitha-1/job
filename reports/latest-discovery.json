@@ -1,6 +1,6 @@
 {
-  "observed_at": "2026-11-24T18:12:29.334129+00:00",
-  "elapsed_seconds": 17.008,
+  "observed_at": "2026-11-24T18:38:44.773049+00:00",
+  "elapsed_seconds": 18.642,
   "source_results": {
     "arbeitnow_de": {
       "rows_received": 300,
@@ -8,7 +8,7 @@
       "distinct_employers": 32,
       "india_eligibility_signals": 0,
       "direct_application_urls": 0,
-      "elapsed_seconds": 0.965
+      "elapsed_seconds": 1.976
     },
     "arbeitnow_uk": {
       "rows_received": 100,
@@ -16,7 +16,7 @@
       "distinct_employers": 12,
       "india_eligibility_signals": 0,
       "direct_application_urls": 0,
-      "elapsed_seconds": 2.212
+      "elapsed_seconds": 3.205
     },
     "remoteok": {
       "rows_received": 100,
@@ -24,60 +24,144 @@
       "distinct_employers": 10,
       "india_eligibility_signals": 0,
       "direct_application_urls": 0,
-      "elapsed_seconds": 2.258
+      "elapsed_seconds": 2.255
     },
     "jobicy": {
       "rows_received": 100,
-      "relevant_current_roles": 46,
-      "distinct_employers": 32,
+      "relevant_current_roles": 47,
+      "distinct_employers": 33,
       "india_eligibility_signals": 1,
       "direct_application_urls": 0,
-      "elapsed_seconds": 1.747
+      "elapsed_seconds": 1.78
+    },
+    "hn_whoishiring": {
+      "thread": {
+        "id": "50338728",
+        "title": "Ask HN: Who is hiring? (November 2026)",
+        "created_at": "2026-11-02T16:01:37Z",
+        "url": "https://news.ycombinator.com/item?id=50338728"
+      },
+      "comments_read": 378,
+      "top_level_comments": 239,
+      "engineering_role_leads": 56,
+      "candidate_external_links": 46,
+      "verification_attempts": 3,
+      "verification_failure_reasons": {
+        "no_matching_active_structured_vacancy": 3
+      },
+      "verified_employer_vacancies": 0,
+      "verified_official_application_urls": 0
     },
     "gharchive_live": {
       "hour_utc": "2026-11-24T15:00:00+00:00",
       "events_read": 3013,
-      "activity_company_leads": 2590,
-      "organization_lookups_attempted": 12,
+      "activity_company_leads": 990,
+      "organization_lookups_attempted": 1,
       "organization_profiles_resolved": 0,
       "not_organization_or_not_found": 0,
-      "lookup_errors": 12,
+      "lookup_errors": 1,
+      "rate_limited": true,
+      "retry_at": 1795546765,
       "employer_verified": 0,
       "vacancies_verified": 0
     }
   },
   "errors": [],
   "descriptive_comparison": {
-    "sample_size": 111,
+    "sample_size": 168,
     "top_20_field_weighted": {
       "rows": 20,
-      "distinct_employer_names": 18,
-      "india_eligibility_text_signals": 1,
+      "distinct_employer_name_strings": 20,
+      "india_eligibility_text_signals": 3,
       "official_apply_urls": 0
     },
     "top_20_ordinary_keyword": {
       "rows": 20,
-      "distinct_employer_names": 18,
-      "india_eligibility_text_signals": 1,
+      "distinct_employer_name_strings": 19,
+      "india_eligibility_text_signals": 3,
       "official_apply_urls": 0
     },
     "human_labeled_ground_truth": 0,
     "interpretation": "Descriptive reranking on the same live feed sample; eligibility labels are heuristic and this is not a precision or accuracy estimate."
   },
   "totals": {
-    "source_observations": 117,
-    "unique_provider_listings": 111,
-    "distinct_employer_names": 80,
-    "provider_listings_observed": 111,
+    "source_observations": 174,
+    "unique_provider_listings": 168,
+    "distinct_employer_name_strings": 135,
+    "verified_employers": 0,
+    "unverified_employer_name_leads": 135,
+    "fully_verified_india_eligible_opportunities": 0,
+    "provider_listings_observed": 168,
     "official_employer_application_urls": 0,
-    "india_eligibility_signals": 1,
-    "unknown_eligibility": 92,
-    "excluded": 18,
-    "ranked_investigation_listings": 93,
+    "verified_active_vacancies": 0,
+    "india_eligibility_signals": 3,
+    "unknown_eligibility": 144,
+    "excluded": 21,
+    "ranked_investigation_listings": 147,
+    "prepared_applications": 0,
     "confirmed_submissions": 0,
     "resolved_unverified_github_organization_leads": 0
   },
   "opportunities": [
+    {
+      "company": "Hemant Singh",
+      "official_website": null,
+      "title": "Software Engineer / Backend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50454490",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://drive.google.com/file/d/1qoAp89hm10bYnm6DLFJTBrXdHMV9Pr9V/view?usp=sharing",
+        "https://github.com/simplyhemant",
+        "https://portfolio-two-murex-65.vercel.app/",
+        "https://simply-cinema-frontend.vercel.app/",
+        "https://www.linkedin.com/in/simplyhemant/"
+      ],
+      "work_location": "India (REMOTE / ONSITE)",
+      "india_eligibility": "eligible_signal",
+      "eligibility_evidence": [
+        {
+          "signal": "india_allowed",
+          "source": "location",
+          "text": "india"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.45492,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-11T15:21:10+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Hemant Singh | Software Engineer / Backend Engineer | India (REMOTE / ONSITE)",
+        "source_comment_id": "50454490"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
     {
       "company": "WIN Home Inspection",
       "official_website": null,
@@ -107,7 +191,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:58:56+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -117,18 +201,59 @@
       ]
     },
     {
-      "company": "Docplanner",
+      "company": "Oscilar.com",
       "official_website": null,
-      "title": "Junior Software Engineer – Early Career (Strong Problem solving & Coding Focus) – 100% Remote within Poland",
-      "source_listing_url": "https://jobicy.com/jobs/156547-junior-software-engineer-early-career-strong-problem-solving-coding-focus-100-remote-within-poland-2",
+      "title": "Sr/Staff Software Engineers, Data Scientist, FDE, PM",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50369581",
       "direct_application_url": null,
-      "work_location": "Poland",
+      "candidate_application_urls": [
+        "https://jobs.ashbyhq.com/oscilar?utm_source=HackerNews"
+      ],
+      "work_location": "REMOTE (US/Canada/Brazil/Poland/UK/India) Full-time AI Risk Decisioning™ platform that helps organizations manage onboarding, fraud, credit, and compliance risks",
+      "india_eligibility": "eligible_signal",
+      "eligibility_evidence": [
+        {
+          "signal": "india_allowed",
+          "source": "location",
+          "text": "india"
+        }
+      ],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-04T18:28:02+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Oscilar.com | Sr/Staff Software Engineers, Data Scientist, FDE, PM| REMOTE (US/Canada/Brazil/Poland/UK/India) Full-time AI Risk Decisioning™ platform that helps organizations manage onboarding, fraud, credit, and compliance risks",
+        "source_comment_id": "50369581"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "I'm Sushant Gangurde, A Software Engineer focused on Full-Stack Development and AI-powered applications. I work with React, Next.js, TypeScript, Node.js, Python",
+      "official_website": null,
+      "title": "I'm Sushant Gangurde, A Software Engineer focused on Full-Stack Development and AI-powered applications. I work with React, Next.js, TypeScript, Node.js, Python, PostgreSQL and MongoDB, and enjoy buil",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50388471",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://sushx.in",
+        "https://www.linkedin.com/in/sushantgangurde-dev"
+      ],
+      "work_location": "Unknown",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
+          "skill": "Python",
+          "matched_as": "python"
         },
         {
           "skill": "TypeScript",
@@ -143,25 +268,71 @@
           "matched_as": "react"
         },
         {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
         }
       ],
-      "relevance_score": 7.89124,
-      "keyword_baseline_score": 6,
+      "relevance_score": 11.81081,
+      "keyword_baseline_score": 5,
       "compensation": "Unknown",
-      "published_at": "2026-11-23T03:35:22+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
+      "published_at": "2026-11-06T05:11:29+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
       "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "I'm Sushant Gangurde, A Software Engineer focused on Full-Stack Development and AI-powered applications. I work with React, Next.js, TypeScript, Node.js, Python, PostgreSQL and MongoDB, and enjoy building practical products from frontend to backend.",
+        "source_comment_id": "50388471"
+      },
       "also_seen_in": [
-        "Jobicy"
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Foji",
+      "official_website": null,
+      "title": "Full Stack Engineer (TypeScript/React/Node)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50460895",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://foji.io",
+        "https://wellfound.com/company/fojisoft/jobs"
+      ],
+      "work_location": "Atlanta (hybrid) or REMOTE (US: Utah, Central or Eastern time) | Full-time | $110K–$140K + equity | https://foji.io",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 7.76397,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-12T00:03:47+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Foji | Full Stack Engineer (TypeScript/React/Node) | Atlanta (hybrid) or REMOTE (US: Utah, Central or Eastern time) | Full-time | $110K–$140K + equity | https://foji.io",
+        "source_comment_id": "50460895"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -195,7 +366,51 @@
       "keyword_baseline_score": 4,
       "compensation": "Unknown",
       "published_at": "2026-11-24T04:45:15+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Docplanner",
+      "official_website": null,
+      "title": "Junior Software Engineer – Early Career (Strong Problem solving & Coding Focus) – 100% Remote within Poland",
+      "source_listing_url": "https://jobicy.com/jobs/156547-junior-software-engineer-early-career-strong-problem-solving-coding-focus-100-remote-within-poland-2",
+      "direct_application_url": null,
+      "work_location": "Poland",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 6.88559,
+      "keyword_baseline_score": 6,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:35:22+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -239,7 +454,7 @@
       "keyword_baseline_score": 5,
       "compensation": "Unknown",
       "published_at": "2026-11-22T15:42:24+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -249,19 +464,19 @@
       ]
     },
     {
-      "company": "Connectwise",
+      "company": "I'm Rajneesh Verma, a Full-Stack & AI Engineer currently working with a YC-backed startup. I have hands-on experience building and shipping production-ready app",
       "official_website": null,
-      "title": "Senior Software Engineer",
-      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/connectwise/senior-software-engineer-london-416825",
+      "title": "I'm Rajneesh Verma, a Full-Stack & AI Engineer currently working with a YC-backed startup. I have hands-on experience building and shipping production-ready applications, scalable backend systems, API",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50382899",
       "direct_application_url": null,
-      "work_location": "London",
+      "candidate_application_urls": [
+        "https://github.com/rajneeshverma1",
+        "https://www.rajneeshcodex.xyz"
+      ],
+      "work_location": "Unknown",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
         {
           "skill": "Python",
           "matched_as": "python"
@@ -271,26 +486,82 @@
           "matched_as": "typescript"
         },
         {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 6.65771,
+      "keyword_baseline_score": 5,
+      "compensation": "Unknown",
+      "published_at": "2026-11-05T18:54:54+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "I'm Rajneesh Verma, a Full-Stack & AI Engineer currently working with a YC-backed startup. I have hands-on experience building and shipping production-ready applications, scalable backend systems, APIs, and AI-powered products.",
+        "source_comment_id": "50382899"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "DevOps Engineer",
+      "official_website": null,
+      "title": "DevOps Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50425675",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://round1.work/listings/listing_tenant_a741427d-313d-4108-9e6e-ddd133d4f386"
+      ],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
           "skill": "Kubernetes",
-          "matched_as": "kubernetes"
+          "matched_as": "k8s"
         },
         {
           "skill": "AWS",
           "matched_as": "aws"
         }
       ],
-      "relevance_score": 6.87029,
-      "keyword_baseline_score": 5,
+      "relevance_score": 6.34306,
+      "keyword_baseline_score": 4,
       "compensation": "Unknown",
-      "published_at": "2026-11-24T12:55:18+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
-      "discovery_source": "Arbeitnow",
-      "source_credit": "Arbeitnow",
-      "source_status": "present in current public provider feed; not independently verified with employer",
+      "published_at": "2026-11-09T13:57:09+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
       "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "DevOps Engineer",
+        "source_comment_id": "50425675"
+      },
       "also_seen_in": [
-        "Arbeitnow",
-        "Arbeitnow UK"
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -324,7 +595,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:52+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -360,7 +631,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:15+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -370,44 +641,109 @@
       ]
     },
     {
-      "company": "Deliveroo",
+      "company": "Zefr",
       "official_website": null,
-      "title": "Senior Software Engineer (Full Stack) - EMEA Pricing and Affordability",
-      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/deliveroo/senior-software-engineer-full-stack-emea-pricing-and-affordability-london-267593",
+      "title": "Site Reliability Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50386884",
       "direct_application_url": null,
-      "work_location": "London, England, United Kingdom",
+      "candidate_application_urls": [
+        "https://zefr.com"
+      ],
+      "work_location": "Full-time | On-site 2-3x per week | $100,000 - $130,000 | https://zefr.com",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
           "skill": "Python",
           "matched_as": "python"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
         },
         {
           "skill": "React",
           "matched_as": "react"
         },
         {
-          "skill": "PostgreSQL",
-          "matched_as": "postgresql"
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
         }
       ],
-      "relevance_score": 5.8728,
+      "relevance_score": 6.0345,
+      "keyword_baseline_score": 5,
+      "compensation": "Unknown",
+      "published_at": "2026-11-06T01:07:33+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Zefr | Los Angeles, CA (Marina del Rey) | Site Reliability Engineer | Full-time | On-site 2-3x per week | $100,000 - $130,000 | https://zefr.com",
+        "source_comment_id": "50386884"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Paramark",
+      "official_website": null,
+      "title": "Software Engineer (L4)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340419",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://paramark.com/careers/software-engineer-l4",
+        "https://paramark.com/careers/software-engineer-l4-remote",
+        "https://www.mercurynews.com/2025/08/25/silicon-valley-startup-grind-long-hours/"
+      ],
+      "work_location": "San Francisco HYBRID (3 days/wk) or REMOTE (US) | Full-time | $199K–$249K + equity",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 6.0223,
       "keyword_baseline_score": 4,
       "compensation": "Unknown",
-      "published_at": "2026-11-24T15:45:26+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
-      "discovery_source": "Arbeitnow",
-      "source_credit": "Arbeitnow",
-      "source_status": "present in current public provider feed; not independently verified with employer",
+      "published_at": "2026-11-02T17:36:23+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
       "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Paramark | Software Engineer (L4) | San Francisco HYBRID (3 days/wk) or REMOTE (US) | Full-time | $199K–$249K + equity",
+        "source_comment_id": "50340419"
+      },
       "also_seen_in": [
-        "Arbeitnow",
-        "Arbeitnow UK"
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -437,47 +773,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-22T16:09:59+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Jobicy"
-      ]
-    },
-    {
-      "company": "Monzo",
-      "official_website": null,
-      "title": "Senior Backend Engineer",
-      "source_listing_url": "https://jobicy.com/jobs/156699-senior-backend-engineer-12",
-      "direct_application_url": null,
-      "work_location": "UK",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "React",
-          "matched_as": "react"
-        },
-        {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 5.67277,
-      "keyword_baseline_score": 4,
-      "compensation": "Unknown",
-      "published_at": "2026-11-24T04:25:20+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -517,7 +813,7 @@
       "keyword_baseline_score": 4,
       "compensation": "Unknown",
       "published_at": "2026-11-24T03:32:55+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -553,7 +849,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:15+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -589,7 +885,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T03:55:20+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
       "discovery_source": "Arbeitnow UK",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -599,49 +895,56 @@
       ]
     },
     {
-      "company": "Talk360",
+      "company": "Connectwise",
       "official_website": null,
-      "title": "Senior Full-Stack Engineer",
-      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/talk360/senior-full-stack-engineer-amsterdam-277699",
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/connectwise/senior-software-engineer-london-416825",
       "direct_application_url": null,
-      "work_location": "Amsterdam, Noord-Holland, Netherlands",
+      "work_location": "London",
       "india_eligibility": "unknown",
-      "eligibility_evidence": [
-        {
-          "signal": "worldwide_remote",
-          "source": "description",
-          "text": "work from anywhere"
-        }
-      ],
+      "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
+          "skill": "Python",
+          "matched_as": "python"
         },
         {
           "skill": "TypeScript",
           "matched_as": "typescript"
         },
         {
-          "skill": "React",
-          "matched_as": "react"
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
         },
         {
           "skill": "AWS",
           "matched_as": "aws"
         }
       ],
-      "relevance_score": 5.43977,
-      "keyword_baseline_score": 4,
+      "relevance_score": 5.43905,
+      "keyword_baseline_score": 5,
       "compensation": "Unknown",
-      "published_at": "2026-11-24T09:31:40+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "published_at": "2026-11-24T12:55:18+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
-        "Arbeitnow"
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
       ]
     },
     {
@@ -671,7 +974,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T13:00:06+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -681,18 +984,19 @@
       ]
     },
     {
-      "company": "Customer.io",
+      "company": "*Confidential Healthcare AI Startup",
       "official_website": null,
-      "title": "Senior Software Engineer, Product/AI",
-      "source_listing_url": "https://jobicy.com/jobs/156560-senior-software-engineer-product-ai",
+      "title": "Senior Full Stack Engineer (Frontend-Leaning)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50484305",
       "direct_application_url": null,
-      "work_location": "EMEA",
+      "candidate_application_urls": [],
+      "work_location": "NYC | Hybrid (3 days onsite) | Full-Time | $160K–$200K + Equity*",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
+          "skill": "Python",
+          "matched_as": "python"
         },
         {
           "skill": "TypeScript",
@@ -703,17 +1007,22 @@
           "matched_as": "react"
         }
       ],
-      "relevance_score": 5.34445,
+      "relevance_score": 5.13124,
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
-      "published_at": "2026-11-23T03:35:10+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
+      "published_at": "2026-11-13T14:47:49+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
       "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "*Confidential Healthcare AI Startup | Senior Full Stack Engineer (Frontend-Leaning) | NYC | Hybrid (3 days onsite) | Full-Time | $160K–$200K + Equity*",
+        "source_comment_id": "50484305"
+      },
       "also_seen_in": [
-        "Jobicy"
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -743,13 +1052,121 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:31:23+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Radar Labs",
+      "official_website": null,
+      "title": "Software Engineers (SRE, ML, backend, full-stack, mobile, security, QA)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50357486",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://radar.com",
+        "https://radar.com/jobs#jobs"
+      ],
+      "work_location": "Remote (US), NYC | Full Time | https://radar.com",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "k8s"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.10315,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T20:09:59+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Radar Labs | Software Engineers (SRE, ML, backend, full-stack, mobile, security, QA) | Remote (US), NYC | Full Time | https://radar.com",
+        "source_comment_id": "50357486"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Collabify",
+      "official_website": null,
+      "title": "Senior Full-Stack Engineer (backend-heavy)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50428062",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://forms.gle/yJAabKvLKtJmfz21A"
+      ],
+      "work_location": "REMOTE (worldwide) | Contract, 4–5 months | $3,000–4,000/month",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "location",
+          "text": "worldwide"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 5.05736,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-09T16:46:20+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Collabify | Senior Full-Stack Engineer (backend-heavy) | REMOTE (worldwide) | Contract, 4–5 months | $3,000–4,000/month",
+        "source_comment_id": "50428062"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -783,7 +1200,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:55:39+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -791,42 +1208,194 @@
       "also_seen_in": [
         "Arbeitnow",
         "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
       ]
     },
     {
-      "company": "Customer.io",
+      "company": "3ive",
       "official_website": null,
-      "title": "Senior Software Engineer, Backend",
-      "source_listing_url": "https://jobicy.com/jobs/156558-senior-software-engineer-backend-4",
+      "title": "Senior/Staff Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50398466",
       "direct_application_url": null,
-      "work_location": "EMEA",
+      "candidate_application_urls": [
+        "https://jobs.ashbyhq.com/3ive/36d01a3c-94ac-4d6c-b872-4b0f9cff1c52?utm_source=hackernews"
+      ],
+      "work_location": "REMOTE (Europe) | Full-time | Python, TypeScript, React, AI Agents",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
         },
         {
           "skill": "React",
           "matched_as": "react"
+        }
+      ],
+      "relevance_score": 4.8839,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-06T21:01:10+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "3ive | Senior/Staff Software Engineer | REMOTE (Europe) | Full-time | Python, TypeScript, React, AI Agents",
+        "source_comment_id": "50398466"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Stealth Health-Tech Startup",
+      "official_website": null,
+      "title": "Senior Backend/Infrastructure Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50429861",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://forms.gle/N9U7zkz2zaUUtunV7"
+      ],
+      "work_location": "San Francisco | ONSITE | Full-time | [salary range] + generous equity",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
         },
         {
           "skill": "AWS",
           "matched_as": "aws"
         }
       ],
-      "relevance_score": 4.67662,
+      "relevance_score": 4.49009,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-09T18:53:51+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Stealth Health-Tech Startup | Senior Backend/Infrastructure Engineer | San Francisco | ONSITE | Full-time | [salary range] + generous equity",
+        "source_comment_id": "50429861"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "GovStar",
+      "official_website": null,
+      "title": "Security Engineer + Data Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50346358",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://govstar.us"
+      ],
+      "work_location": "U.S. Citizens",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.46361,
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
-      "published_at": "2026-11-23T03:40:38+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
+      "published_at": "2026-11-03T00:33:17+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
       "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "GovStar | https://govstar.us | Remote (U.S. Eastern/Central Time) | Security Engineer + Data Engineer | U.S. Citizens",
+        "source_comment_id": "50346358"
+      },
       "also_seen_in": [
-        "Jobicy"
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Equall",
+      "official_website": null,
+      "title": "Backend Engineer, Foundations",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50339511",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://jobs.ashbyhq.com/equall/48013ed1-8fab-4b49-b926-6d7e252c1086"
+      ],
+      "work_location": "New York, NY | ONSITE | Full-time | $160K–$250K + equity | https://jobs.ashbyhq.com/equall/48013ed1-8fab-4b49-b926-6d7e...",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "k8s"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 4.45204,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:41:15+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Equall | Backend Engineer, Foundations | New York, NY | ONSITE | Full-time | $160K–$250K + equity | https://jobs.ashbyhq.com/equall/48013ed1-8fab-4b49-b926-6d7e...",
+        "source_comment_id": "50339511"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -856,7 +1425,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-22T04:26:59+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -866,39 +1435,94 @@
       ]
     },
     {
-      "company": "Mistral.ai",
+      "company": "Deliveroo",
       "official_website": null,
-      "title": "Software Engineer, Inference",
-      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/mistralai/software-engineer-inference-london-335484",
+      "title": "Senior Software Engineer (Full Stack) - EMEA Pricing and Affordability",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/deliveroo/senior-software-engineer-full-stack-emea-pricing-and-affordability-london-267593",
       "direct_application_url": null,
-      "work_location": "London",
+      "work_location": "London, England, United Kingdom",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
         {
           "skill": "Python",
           "matched_as": "python"
         },
         {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
         }
       ],
-      "relevance_score": 4.43999,
-      "keyword_baseline_score": 3,
+      "relevance_score": 4.44027,
+      "keyword_baseline_score": 4,
       "compensation": "Unknown",
-      "published_at": "2026-11-24T09:40:12+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
-      "discovery_source": "Arbeitnow UK",
+      "published_at": "2026-11-24T15:45:26+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
+      "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
+        "Arbeitnow",
         "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "company": "Talk360",
+      "official_website": null,
+      "title": "Senior Full-Stack Engineer",
+      "source_listing_url": "https://www.arbeitnow.nl/jobs/companies/talk360/senior-full-stack-engineer-amsterdam-277699",
+      "direct_application_url": null,
+      "work_location": "Amsterdam, Noord-Holland, Netherlands",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "work from anywhere"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.43698,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:31:40+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
       ]
     },
     {
@@ -924,7 +1548,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-23T18:31:32+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -956,7 +1580,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T03:55:26+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
       "discovery_source": "Arbeitnow UK",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -988,13 +1612,102 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:59+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Alternative Payments",
+      "official_website": null,
+      "title": "Senior Software Engineer, Alti (AI agents)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50474550",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://jobs.ashbyhq.com/alternativepayments/76a7a829-d08d-4a0f-9a88-7d471a5a1e49",
+        "https://www.linkedin.com/in/filipegarcias"
+      ],
+      "work_location": "REMOTE (Brazil) | Full-time | $90k–105k + equity",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 4.07213,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-12T21:28:47+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Alternative Payments | Senior Software Engineer, Alti (AI agents) | REMOTE (Brazil) | Full-time | $90k–105k + equity",
+        "source_comment_id": "50474550"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "OpenTrain AI",
+      "official_website": null,
+      "title": "Backend Engineer, AI Coding Task Design",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50420399",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://app.opentrain.ai/api/out/cmu9linxg000o0bgm9xiw33b9?ch=news-ycombinator-com&sub=news-ycombinator-com-cmu9linxg-us-2026-11"
+      ],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        }
+      ],
+      "relevance_score": 4.03965,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-09T02:48:07+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "OpenTrain AI | REMOTE (US) | Part-time | Backend Engineer, AI Coding Task Design",
+        "source_comment_id": "50420399"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1024,13 +1737,58 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-22T04:27:05+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "SadServers",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50341345",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://sadservers.com",
+        "https://srebattle.com/"
+      ],
+      "work_location": "REMOTE (Canada) | Part-time or Contract | $55 - $75/hr | https://sadservers.com",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 4.01787,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T18:32:00+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "SadServers | Software Engineer | REMOTE (Canada) | Part-time or Contract | $55 - $75/hr | https://sadservers.com",
+        "source_comment_id": "50341345"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1060,7 +1818,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-23T17:55:34+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1096,7 +1854,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-22T15:46:39+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1132,163 +1890,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T13:00:58+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Jobicy"
-      ]
-    },
-    {
-      "company": "Ramp",
-      "official_website": null,
-      "title": "Software Engineer, Security, Stablecoin",
-      "source_listing_url": "https://jobicy.com/jobs/163919-software-engineer-security-stablecoin-2",
-      "direct_application_url": null,
-      "work_location": "USA",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 4.00995,
-      "keyword_baseline_score": 3,
-      "compensation": "Unknown",
-      "published_at": "2026-11-23T12:36:20+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Jobicy"
-      ]
-    },
-    {
-      "company": "Veriff",
-      "official_website": null,
-      "title": "Senior Software Engineer",
-      "source_listing_url": "https://jobicy.com/jobs/164038-senior-software-engineer-30",
-      "direct_application_url": null,
-      "work_location": "Spain",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [
-        {
-          "signal": "worldwide_remote",
-          "source": "description",
-          "text": "anywhere in the world"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "React",
-          "matched_as": "react"
-        }
-      ],
-      "relevance_score": 4.00939,
-      "keyword_baseline_score": 3,
-      "compensation": "Unknown",
-      "published_at": "2026-11-24T08:06:15+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Jobicy"
-      ]
-    },
-    {
-      "company": "CoreWeave",
-      "official_website": null,
-      "title": "Senior Data Platform Engineer - Weights & Biases",
-      "source_listing_url": "https://jobicy.com/jobs/163981-senior-data-platform-engineer-weights-biases",
-      "direct_application_url": null,
-      "work_location": "USA",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 4.00765,
-      "keyword_baseline_score": 3,
-      "compensation": "Unknown",
-      "published_at": "2026-11-23T17:53:03+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
-      "discovery_source": "Jobicy",
-      "source_credit": "Jobicy",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Jobicy"
-      ]
-    },
-    {
-      "company": "Huntress",
-      "official_website": null,
-      "title": "Principal Software Engineer - Agentic SOC",
-      "source_listing_url": "https://jobicy.com/jobs/156767-principal-software-engineer-agentic-soc",
-      "direct_application_url": null,
-      "work_location": "USA",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [
-        {
-          "signal": "worldwide_remote",
-          "source": "description",
-          "text": "worldwide"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "PostgreSQL",
-          "matched_as": "postgres"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 4.00523,
-      "keyword_baseline_score": 2,
-      "compensation": "Unknown",
-      "published_at": "2026-11-24T04:40:10+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1324,7 +1926,43 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-24T04:25:29+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Monzo",
+      "official_website": null,
+      "title": "Senior Backend Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/156699-senior-backend-engineer-12",
+      "direct_application_url": null,
+      "work_location": "UK",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00467,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:25:20+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1367,7 +2005,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T03:31:48+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
       "discovery_source": "Arbeitnow UK",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1399,7 +2037,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T16:20:18+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1431,7 +2069,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T16:20:18+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1463,7 +2101,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T00:00:08+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1473,36 +2111,76 @@
       ]
     },
     {
-      "company": "Abnormalsecurity",
+      "company": "Customer.io",
       "official_website": null,
-      "title": "Enterprise Platform Engineer, EMEA",
-      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/abnormalsecurity/enterprise-platform-engineer-emea-335308",
+      "title": "Senior Software Engineer, Product/AI",
+      "source_listing_url": "https://jobicy.com/jobs/156560-senior-software-engineer-product-ai",
       "direct_application_url": null,
-      "work_location": "Unknown",
+      "work_location": "EMEA",
       "india_eligibility": "unknown",
       "eligibility_evidence": [],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
+          "skill": "TypeScript",
+          "matched_as": "typescript"
         },
         {
-          "skill": "Python",
-          "matched_as": "python"
+          "skill": "React",
+          "matched_as": "react"
         }
       ],
-      "relevance_score": 3.66947,
-      "keyword_baseline_score": 2,
+      "relevance_score": 3.67418,
+      "keyword_baseline_score": 3,
       "compensation": "Unknown",
-      "published_at": "2026-11-24T15:55:42+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
-      "discovery_source": "Arbeitnow",
-      "source_credit": "Arbeitnow",
+      "published_at": "2026-11-23T03:35:10+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
-        "Arbeitnow",
-        "Arbeitnow UK"
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "JPMorganChase",
+      "official_website": null,
+      "title": "Lead Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340287",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210798997",
+        "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210800563"
+      ],
+      "work_location": "ONSITE (Jersey City, NJ) | $156,750 - $215,000.",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.45998,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T17:26:48+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "JPMorganChase | Lead Software Engineer | ONSITE (Jersey City, NJ) | $156,750 - $215,000.",
+        "source_comment_id": "50340287"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1528,13 +2206,92 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T06:31:25+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "VIVA Finance",
+      "official_website": null,
+      "title": "Front-End + Mobile Developer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340983",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.44469,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T18:10:03+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "VIVA Finance | Atlanta, GA (In Person)| Front-End + Mobile Developer",
+        "source_comment_id": "50340983"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Hatch",
+      "official_website": null,
+      "title": "Staff Backend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50346184",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://grnh.se/2fzj9un76us",
+        "https://hatch.co"
+      ],
+      "work_location": "REMOTE (US/Canada, Pacific Time hours) | Full-time | https://hatch.co",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.44098,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T00:12:07+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Hatch | Staff Backend Engineer | REMOTE (US/Canada, Pacific Time hours) | Full-time | https://hatch.co",
+        "source_comment_id": "50346184"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1560,7 +2317,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-22T04:27:10+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1598,7 +2355,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-23T03:25:42+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1630,7 +2387,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-23T03:50:20+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1662,7 +2419,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:55:39+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1696,13 +2453,162 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T18:31:30+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "CoreWeave",
+      "official_website": null,
+      "title": "Senior Specialist Field Engineers (Kubernetes, Security, Storage, Compute Infrastructure)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50339042",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://grnh.se/137kuvyv6us",
+        "https://grnh.se/7j1kydde6us",
+        "https://grnh.se/jxbek1o66us",
+        "https://grnh.se/q3hmrcf56us"
+      ],
+      "work_location": "Full-time | Hybrid, 3 days/week in office: San Francisco CA, Sunnyvale CA, or Bellevue WA | $182k-$275k base + bonus + equity",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "k8s"
+        }
+      ],
+      "relevance_score": 3.40286,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:16:09+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "CoreWeave | Senior Specialist Field Engineers (Kubernetes, Security, Storage, Compute Infrastructure) | Full-time | Hybrid, 3 days/week in office: San Francisco CA, Sunnyvale CA, or Bellevue WA | $182k-$275k base + bonus + equity",
+        "source_comment_id": "50339042"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Odoo",
+      "official_website": null,
+      "title": "Software Developer (Python / JavaScript)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50341895",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.odoo.com/r/zbNF"
+      ],
+      "work_location": "Grand-Rosière (near Brussels), Belgium | Hybrid, 3 days/week in office | Full-time | €10k signing bonus",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 3.33577,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T19:04:09+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Odoo | Software Developer (Python / JavaScript) | Grand-Rosière (near Brussels), Belgium | Hybrid, 3 days/week in office | Full-time | €10k signing bonus",
+        "source_comment_id": "50341895"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Tech Mahindra’s Cloud Advisory division is hiring engineers (4+YoE) and cloud solution architects (8+YoE) to help enterprises modernize and operate at scale on ",
+      "official_website": null,
+      "title": "Tech Mahindra’s Cloud Advisory division is hiring engineers (4+YoE) and cloud solution architects (8+YoE) to help enterprises modernize and operate at scale on AWS, Azure, and GCP. We value folks with",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50348055",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.16135,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T04:26:01+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Tech Mahindra’s Cloud Advisory division is hiring engineers (4+YoE) and cloud solution architects (8+YoE) to help enterprises modernize and operate at scale on AWS, Azure, and GCP. We value folks with a strong software development background who have grown into cloud and platform engineering roles. Our work spans cloud application modernization, platform engineering, DevOps, SRE, SecOps, and FinOps. Any experience with using AI to improve cloud platforms, DevOps or operations is a plus.",
+        "source_comment_id": "50348055"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Proxima Fusion",
+      "official_website": null,
+      "title": "Senior Software Engineer (Dev Platform)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50349037",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://jobs.ashbyhq.com/proxima-fusion/5aebfef0-0c2c-4c87-990d-bbbbd53b94d2/application"
+      ],
+      "work_location": "Munich, Germany | ONSITE | Full-time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "k8s"
+        }
+      ],
+      "relevance_score": 3.02449,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T07:18:48+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Proxima Fusion | Senior Software Engineer (Dev Platform) | Munich, Germany | ONSITE | Full-time",
+        "source_comment_id": "50349037"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1728,13 +2634,135 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-23T18:30:48+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "eventfirst",
+      "official_website": null,
+      "title": "Senior Full-Stack Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50341824",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://eventfirst.jobs.personio.com/job/2870690?_pc=3355738"
+      ],
+      "work_location": "Berlin, Germany | REMOTE (CET) | Full-time | eventfirst.com",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.01697,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T19:00:07+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "eventfirst | Senior Full-Stack Engineer | Berlin, Germany | REMOTE (CET) | Full-time | eventfirst.com",
+        "source_comment_id": "50341824"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Silkline",
+      "official_website": null,
+      "title": "Software Engineer, Deployment Strategist",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50344816",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://jobs.gem.com/silkline",
+        "https://jobs.gem.com/silkline/am9icG9zdDrLwsEQTKKa02Ut_F9kgzby",
+        "https://silkline.ai"
+      ],
+      "work_location": "Chicago, Seattle | ONSITE | $150k-$225k + equity | https://silkline.ai",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.01537,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T22:24:23+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Silkline | Software Engineer, Deployment Strategist | Chicago, Seattle | ONSITE | $150k-$225k + equity | https://silkline.ai",
+        "source_comment_id": "50344816"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Odoo",
+      "official_website": null,
+      "title": "Software Developer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50348803",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.odoo.com/r/4zN"
+      ],
+      "work_location": "Hybrid (Belgium, 3 days/week) | Full-time | Visa + €10k Signing Bonus | https://www.odoo.com/r/4zN",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgresql"
+        }
+      ],
+      "relevance_score": 3.01373,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T06:39:23+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Odoo | Software Developer | Hybrid (Belgium, 3 days/week) | Full-time | Visa + €10k Signing Bonus | https://www.odoo.com/r/4zN",
+        "source_comment_id": "50348803"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -1760,45 +2788,13 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-22T16:10:59+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
-      ]
-    },
-    {
-      "company": "Datadog",
-      "official_website": null,
-      "title": "Senior Software Engineer - Autonomous Ops & Maintenance (ATOM)",
-      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/datadog/senior-software-engineer-autonomous-ops-maintenance-atom-paris-164344",
-      "direct_application_url": null,
-      "work_location": "Paris",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        }
-      ],
-      "relevance_score": 3.01152,
-      "keyword_baseline_score": 2,
-      "compensation": "Unknown",
-      "published_at": "2026-11-24T09:55:17+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
-      "discovery_source": "Arbeitnow",
-      "source_credit": "Arbeitnow",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Arbeitnow"
       ]
     },
     {
@@ -1824,7 +2820,205 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-22T16:10:37+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Attentive",
+      "official_website": null,
+      "title": "Senior Software Engineer, Data Platform",
+      "source_listing_url": "https://jobicy.com/jobs/164153-senior-software-engineer-data-platform-3",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.00766,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:19:13+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Mistral.ai",
+      "official_website": null,
+      "title": "Software Engineer, Inference",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/mistralai/software-engineer-inference-london-335484",
+      "direct_application_url": null,
+      "work_location": "London",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 3.00757,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:40:12+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Customer.io",
+      "official_website": null,
+      "title": "Senior Software Engineer, Backend",
+      "source_listing_url": "https://jobicy.com/jobs/156558-senior-software-engineer-backend-4",
+      "direct_application_url": null,
+      "work_location": "EMEA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "React",
+          "matched_as": "react"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.00681,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T03:40:38+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Ramp",
+      "official_website": null,
+      "title": "Software Engineer, Security, Stablecoin",
+      "source_listing_url": "https://jobicy.com/jobs/163919-software-engineer-security-stablecoin-2",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.00663,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T12:36:20+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "Veriff",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://jobicy.com/jobs/164038-senior-software-engineer-30",
+      "direct_application_url": null,
+      "work_location": "Spain",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "anywhere in the world"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.00626,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T08:06:15+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
+      ]
+    },
+    {
+      "company": "CoreWeave",
+      "official_website": null,
+      "title": "Senior Data Platform Engineer - Weights & Biases",
+      "source_listing_url": "https://jobicy.com/jobs/163981-senior-data-platform-engineer-weights-biases",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.0051,
+      "keyword_baseline_score": 3,
+      "compensation": "Unknown",
+      "published_at": "2026-11-23T17:53:03+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1856,7 +3050,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:40:17+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1864,6 +3058,56 @@
       "also_seen_in": [
         "Arbeitnow",
         "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
+      ]
+    },
+    {
+      "company": "Huntress",
+      "official_website": null,
+      "title": "Principal Software Engineer - Agentic SOC",
+      "source_listing_url": "https://jobicy.com/jobs/156767-principal-software-engineer-agentic-soc",
+      "direct_application_url": null,
+      "work_location": "USA",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 3.00348,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T04:40:10+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
+      "discovery_source": "Jobicy",
+      "source_credit": "Jobicy",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Jobicy"
       ]
     },
     {
@@ -1885,7 +3129,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:33:00+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1913,7 +3157,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T18:31:52+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1941,13 +3185,54 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-22T05:56:40+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "Abnormalsecurity",
+      "official_website": null,
+      "title": "Enterprise Platform Engineer, EMEA",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/abnormalsecurity/enterprise-platform-engineer-emea-335308",
+      "direct_application_url": null,
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.66802,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T15:55:42+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow",
+        "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
       ]
     },
     {
@@ -1969,7 +3254,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:17+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -1997,7 +3282,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T06:31:25+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2025,7 +3310,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:17+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2053,13 +3338,86 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T08:45:26+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
       "discovery_source": "Arbeitnow UK",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow UK"
+      ]
+    },
+    {
+      "company": "Odin",
+      "official_website": null,
+      "title": "Senior Cloud Infra Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50447035",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://job-boards.greenhouse.io/odinlabs/jobs/4451905009"
+      ],
+      "work_location": "Remote | Full time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 2.02894,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-10T22:14:01+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Odin | Senior Cloud Infra Engineer | Remote | Full time",
+        "source_comment_id": "50447035"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Certara",
+      "official_website": null,
+      "title": "Sr. DevOps Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50347008",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://careers.certara.com/jobs/2492/job",
+        "https://careers.certara.com/jobs/2614/job"
+      ],
+      "work_location": "REMOTE (US, Budapest) | Full Time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 2.0129,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T01:56:50+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Certara | Sr. DevOps Engineer | REMOTE (US, Budapest) | Full Time",
+        "source_comment_id": "50347008"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2081,7 +3439,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T08:30:33+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2109,13 +3467,152 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:30:49+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "KSC Trading",
+      "official_website": null,
+      "title": "Senior Backend Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50347792",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "$200k to $250k USD Total Compensation + Benefits",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        }
+      ],
+      "relevance_score": 2.0107,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T03:45:03+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "KSC Trading | Remote or NYC Hybrid | Full-Time | Senior Backend Software Engineer | $200k to $250k USD Total Compensation + Benefits",
+        "source_comment_id": "50347792"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Early-stage Startup",
+      "official_website": null,
+      "title": "Software Engineer & Data Analyst",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50500910",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Full-Time | REMOTE (US & US Citizen) | $100,000 - $180,000 USD",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00967,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-14T21:17:20+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Early-stage Startup | Software Engineer & Data Analyst | Full-Time | REMOTE (US & US Citizen) | $100,000 - $180,000 USD",
+        "source_comment_id": "50500910"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Kraus Hamdani Aerospace",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50339308",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "REMOTE (US) or ONSITE in Reno, NV",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        }
+      ],
+      "relevance_score": 2.00956,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:30:26+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Kraus Hamdani Aerospace | Software Engineer | REMOTE (US) or ONSITE in Reno, NV",
+        "source_comment_id": "50339308"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Meta",
+      "official_website": null,
+      "title": "Security Engineer (Senior / Staff)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50344968",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.metacareers.com/profile/job_details/1407457964247914/?env=prod",
+        "https://www.metacareers.com/profile/job_details/5486943914865119/?env=prod"
+      ],
+      "work_location": "ONSITE Bellevue, Menlo Park, New York, Washington DC — Staff role also REMOTE (US) | Full-time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00836,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T22:33:59+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Meta | Security Engineer (Senior / Staff) | ONSITE Bellevue, Menlo Park, New York, Washington DC — Staff role also REMOTE (US) | Full-time",
+        "source_comment_id": "50344968"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2137,7 +3634,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-22T16:09:53+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2165,7 +3662,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T06:31:22+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2199,13 +3696,163 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T03:25:16+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "Simple Analytics",
+      "official_website": null,
+      "title": "DevOps Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50338732",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.simpleanalytics.com/jobs/devops"
+      ],
+      "work_location": "REMOTE (worldwide, any timezone) | Full-time, 32h, 24h possible | €5,000/month (full-time) | https://www.simpleanalytics.com/jobs/devops",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [
+        {
+          "signal": "worldwide_remote",
+          "source": "location",
+          "text": "worldwide"
+        },
+        {
+          "signal": "worldwide_remote",
+          "source": "description",
+          "text": "worldwide"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        }
+      ],
+      "relevance_score": 2.00625,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:01:43+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Simple Analytics | DevOps Engineer | REMOTE (worldwide, any timezone) | Full-time, 32h, 24h possible | €5,000/month (full-time) | https://www.simpleanalytics.com/jobs/devops",
+        "source_comment_id": "50338732"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Common Prefix",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50488627",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://commonprefix.notion.site/2b7bf672de828051b53cdd37811f0d0a",
+        "https://commonprefix.notion.site/swe-folk-bedrock",
+        "https://github.com/commonprefix"
+      ],
+      "work_location": "Athens, Greece / REMOTE | Full-time | $80k to $160k + equity + bonus",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        }
+      ],
+      "relevance_score": 2.0062,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-13T19:37:57+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Common Prefix | Senior Software Engineer | Athens, Greece / REMOTE | Full-time | $80k to $160k + equity + bonus",
+        "source_comment_id": "50488627"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Datadog",
+      "official_website": null,
+      "title": "Senior Software Engineer - Autonomous Ops & Maintenance (ATOM)",
+      "source_listing_url": "https://www.arbeitnow.fr/jobs/companies/datadog/senior-software-engineer-autonomous-ops-maintenance-atom-paris-164344",
+      "direct_application_url": null,
+      "work_location": "Paris",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.00576,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T09:55:17+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
+      "discovery_source": "Arbeitnow",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Paradromics",
+      "official_website": null,
+      "title": "Embedded Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50341026",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://paradromicsinc.applytojob.com/apply/u5hXN4N9ID/Embedded-Software-Engineer",
+        "https://archive.ph/C6CRb"
+      ],
+      "work_location": "Austin, TX or Oakland, CA | Onsite | Full-time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        }
+      ],
+      "relevance_score": 2.00559,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T18:12:46+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Paradromics | Embedded Software Engineer | Austin, TX or Oakland, CA | Onsite | Full-time",
+        "source_comment_id": "50341026"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2227,7 +3874,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T12:36:18+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2255,7 +3902,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-23T17:26:51+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2283,7 +3930,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:17+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2291,6 +3938,18 @@
       "also_seen_in": [
         "Arbeitnow",
         "Arbeitnow UK"
+      ],
+      "eligibility_observations": [
+        {
+          "source": "Arbeitnow",
+          "status": "unknown",
+          "evidence": []
+        },
+        {
+          "source": "Arbeitnow UK",
+          "status": "unknown",
+          "evidence": []
+        }
       ]
     },
     {
@@ -2312,41 +3971,13 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-20T02:15:13+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Remote OK"
-      ]
-    },
-    {
-      "company": "Sanity",
-      "official_website": null,
-      "title": "Software Engineering Manager, Billing & Integrations",
-      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/sanity/software-engineering-manager-billing-integrations-london-uk-337815",
-      "direct_application_url": null,
-      "work_location": "London, UK",
-      "india_eligibility": "unknown",
-      "eligibility_evidence": [],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        }
-      ],
-      "relevance_score": 2.00327,
-      "keyword_baseline_score": 1,
-      "compensation": "Unknown",
-      "published_at": "2026-11-24T03:43:30+00:00",
-      "observed_at": "2026-11-24T18:12:32.313571+00:00",
-      "discovery_source": "Arbeitnow UK",
-      "source_credit": "Arbeitnow",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Arbeitnow UK"
       ]
     },
     {
@@ -2374,7 +4005,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T04:40:12+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2402,7 +4033,7 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-24T04:45:36+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2425,7 +4056,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T16:00:50+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2448,7 +4079,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-23T12:49:29+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2471,7 +4102,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-23T12:49:31+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2494,7 +4125,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-23T12:47:44+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2523,7 +4154,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-23T03:25:31+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2552,7 +4183,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-23T18:31:54+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2575,7 +4206,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:55:16+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2598,7 +4229,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:30:49+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2621,13 +4252,139 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-22T04:01:01+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "ChainSecurity",
+      "official_website": null,
+      "title": "Blockchain Security Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50380439",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.chainsecurity.com/jobs/blockchain-security-engineer/",
+        "https://chainsecurity.com/"
+      ],
+      "work_location": "Full-time | INTERNS , HYBRID/REMOTE, Zurich, Switzerland | VISA possible (for an employment) | https://chainsecurity.com/",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-05T15:35:47+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "ChainSecurity | Blockchain Security Engineer | Full-time | INTERNS , HYBRID/REMOTE, Zurich, Switzerland | VISA possible (for an employment) | https://chainsecurity.com/",
+        "source_comment_id": "50380439"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Clad (YC W23)",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50353098",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.ycombinator.com/companies/clad/jobs/YHGyRSf-software-engineer"
+      ],
+      "work_location": "NYC | withclad.com",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T15:19:35+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Clad (YC W23) | Software Engineer | NYC | withclad.com",
+        "source_comment_id": "50353098"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Confidential (established Saudi engineering & industrial services group, building a new in-house AI unit)",
+      "official_website": null,
+      "title": "Senior AI/ML Engineer, Senior Backend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50339161",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://zalvi.app"
+      ],
+      "work_location": "Khobar, Saudi Arabia | ONSITE, full-time | Relocation + visa provided | Saudi nationals preferred",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:22:17+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Confidential (established Saudi engineering & industrial services group, building a new in-house AI unit) | Senior AI/ML Engineer, Senior Backend Engineer | Khobar, Saudi Arabia | ONSITE, full-time | Relocation + visa provided | Saudi nationals preferred",
+        "source_comment_id": "50339161"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Curiosity (https://curiosity.ai)",
+      "official_website": null,
+      "title": "Forward Deployed Engineer, DevOps Architect",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50342797",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://curiosity.ai/careers/",
+        "https://curiosity.ai"
+      ],
+      "work_location": "Toulouse, France | ONSITE | Full-time (CDI) | Visa support",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T20:00:06+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Curiosity (https://curiosity.ai) | Forward Deployed Engineer, DevOps Architect | Toulouse, France | ONSITE | Full-time (CDI) | Visa support",
+        "source_comment_id": "50342797"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2644,13 +4401,44 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:52+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Eleshop",
+      "official_website": null,
+      "title": "Senior PHP Full-stack engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50343534",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.eleshop.nl/vacatures.html"
+      ],
+      "work_location": "REMOTE (Europe, Africa, W Asia)",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T20:51:27+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Eleshop | Senior PHP Full-stack engineer | REMOTE (Europe, Africa, W Asia)",
+        "source_comment_id": "50343534"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2667,7 +4455,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-22T15:42:17+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2690,13 +4478,44 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T12:31:29+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Kroo",
+      "official_website": null,
+      "title": "Backend Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50460238",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://app.loxo.co/job/MTA5OTQtOXlxejM5ZG9lY3Y2MjF0NQ=="
+      ],
+      "work_location": "NYC, Hybrid | Full-Time | $175k - $220k + equity + health benefits",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-11T23:07:17+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Kroo | Backend Software Engineer | NYC, Hybrid | Full-Time | $175k - $220k + equity + health benefits",
+        "source_comment_id": "50460238"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2713,13 +4532,287 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:40:15+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "Mozilla",
+      "official_website": null,
+      "title": "Sr. Staff Software Engineer, Browser (New Products)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340840",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://job-boards.greenhouse.io/mozilla/jobs/8265116",
+        "https://job-boards.greenhouse.io/mozilla/jobs/8265117"
+      ],
+      "work_location": "REMOTE (US or Canada) | Full-time",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T18:01:01+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Mozilla | Sr. Staff Software Engineer, Browser (New Products) | REMOTE (US or Canada) | Full-time",
+        "source_comment_id": "50340840"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Nivelo",
+      "official_website": null,
+      "title": "Senior Backend Engineer and Senior SDET roles",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50343014",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://nivelo.io/careers",
+        "https://nivelo.io/"
+      ],
+      "work_location": "REMOTE (US) | Full-time | $150k-$180k + equity | https://nivelo.io/",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T20:14:02+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Nivelo | Senior Backend Engineer and Senior SDET roles | REMOTE (US) | Full-time | $150k-$180k + equity | https://nivelo.io/",
+        "source_comment_id": "50343014"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Open Education Applications / Neon",
+      "official_website": null,
+      "title": "Senior Frontend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50338775",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://openeducation.foundation",
+        "https://www.neon.nl"
+      ],
+      "work_location": "Utrecht, The Netherlands | HYBRID | DUTCH REQUIRED",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:03:39+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Open Education Applications / Neon | Senior Frontend Engineer | Utrecht, The Netherlands | HYBRID | DUTCH REQUIRED",
+        "source_comment_id": "50338775"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "outGoing",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50518905",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://idealjob.app/jobs/outgoing/1?utm_source=hackernews&utm_campaign=whoishiring"
+      ],
+      "work_location": "Lisbon, Portugal | HYBRID | €25k–€35k + meal allowance + health insurance",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-16T15:49:35+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "outGoing | Software Engineer | Lisbon, Portugal | HYBRID | €25k–€35k + meal allowance + health insurance",
+        "source_comment_id": "50518905"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Piramidal (YC W24)",
+      "official_website": null,
+      "title": "Senior Backend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50384764",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://grnh.se/uwaqx1xc9us"
+      ],
+      "work_location": "New York, NY | $200K-$300K + equity | www.piramidal.ai",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-05T21:34:32+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Piramidal (YC W24) | Senior Backend Engineer | New York, NY | $200K-$300K + equity | www.piramidal.ai",
+        "source_comment_id": "50384764"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "PostHog",
+      "official_website": null,
+      "title": "Technical CSMs, SRE, Product Manager, AI Research Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50338907",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://posthog.com/careers"
+      ],
+      "work_location": "REMOTE (all remote) | Hiring GMT-8 to GMT+2 | PostHog makes your product self-driving.",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T16:09:48+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "PostHog | Full-Time | Technical CSMs, SRE, Product Manager, AI Research Engineer | REMOTE (all remote) | Hiring GMT-8 to GMT+2 | PostHog makes your product self-driving.",
+        "source_comment_id": "50338907"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Postscript (YC W19)",
+      "official_website": null,
+      "title": "Senior Software Engineer, Full Stack",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340820",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.ycombinator.com/companies/postscript/jobs/ktOBqUe-senior-software-engineer-full-stack"
+      ],
+      "work_location": "REMOTE (US, Canada) | Full-time | $180K to $220K base + equity",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T18:00:14+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Postscript (YC W19) | Senior Software Engineer, Full Stack | REMOTE (US, Canada) | Full-time | $180K to $220K base + equity",
+        "source_comment_id": "50340820"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Rune Labs",
+      "official_website": null,
+      "title": "Senior or Lead Backend Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340242",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://forms.gle/N57yNv7qgKJrmAVs6"
+      ],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T17:24:52+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Rune Labs | Remote (US, CA) | Full Time | Senior or Lead Backend Engineer",
+        "source_comment_id": "50340242"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Sanity",
+      "official_website": null,
+      "title": "Software Engineering Manager, Billing & Integrations",
+      "source_listing_url": "https://www.arbeitnow.co.uk/jobs/companies/sanity/software-engineering-manager-billing-integrations-london-uk-337815",
+      "direct_application_url": null,
+      "work_location": "London, UK",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 1,
+      "compensation": "Unknown",
+      "published_at": "2026-11-24T03:43:30+00:00",
+      "observed_at": "2026-11-24T18:38:49.761032+00:00",
+      "discovery_source": "Arbeitnow UK",
+      "source_credit": "Arbeitnow",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Arbeitnow UK"
       ]
     },
     {
@@ -2736,13 +4829,42 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T03:32:51+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Arbeitnow"
+      ]
+    },
+    {
+      "company": "SEEKING FREELANCER",
+      "official_website": null,
+      "title": "Devops Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50352957",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Remote - UK or EU",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T15:08:09+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "SEEKING FREELANCER | Devops Engineer | Remote - UK or EU",
+        "source_comment_id": "50352957"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2759,7 +4881,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T14:30:45+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2782,7 +4904,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T04:25:45+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2805,7 +4927,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T06:31:22+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2828,7 +4950,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T06:31:22+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2857,7 +4979,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T11:25:51+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2886,13 +5008,42 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T14:44:06+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Jobicy"
+      ]
+    },
+    {
+      "company": "Voluntas",
+      "official_website": null,
+      "title": "Software Engineer",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50340434",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Unknown",
+      "india_eligibility": "unknown",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T17:37:08+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Voluntas | Remote | Full Time | Software Engineer",
+        "source_comment_id": "50340434"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     },
     {
@@ -2909,7 +5060,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-22T16:10:23+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2932,7 +5083,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:54+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2955,7 +5106,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:54+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -2978,7 +5129,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:54+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3001,7 +5152,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-24T15:32:54+00:00",
-      "observed_at": "2026-11-24T18:12:29.862810+00:00",
+      "observed_at": "2026-11-24T18:38:46.295808+00:00",
       "discovery_source": "Arbeitnow",
       "source_credit": "Arbeitnow",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3030,10 +5181,6 @@
       ],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
           "skill": "Python",
           "matched_as": "python"
         },
@@ -3054,11 +5201,11 @@
           "matched_as": "aws"
         }
       ],
-      "relevance_score": 7.87783,
+      "relevance_score": 6.87441,
       "keyword_baseline_score": 6,
       "compensation": "Unknown",
       "published_at": "2026-11-23T03:25:22+00:00",
-      "observed_at": "2026-11-24T18:12:36.283042+00:00",
+      "observed_at": "2026-11-24T18:38:53.719372+00:00",
       "discovery_source": "Jobicy",
       "source_credit": "Jobicy",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3084,10 +5231,6 @@
       ],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
           "skill": "Python",
           "matched_as": "python"
         },
@@ -3108,107 +5251,11 @@
           "matched_as": "aws"
         }
       ],
-      "relevance_score": 7.01902,
+      "relevance_score": 6.01585,
       "keyword_baseline_score": 6,
       "compensation": "Unknown",
       "published_at": "2026-11-21T01:00:06+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
-      "discovery_source": "Remote OK",
-      "source_credit": "Remote OK",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Remote OK"
-      ]
-    },
-    {
-      "company": "Reddit",
-      "official_website": null,
-      "title": "Engineering Manager, Ranking Platform",
-      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-engineering-manager-ranking-platform-reddit-1137946",
-      "direct_application_url": null,
-      "work_location": "US Only",
-      "india_eligibility": "excluded",
-      "eligibility_evidence": [
-        {
-          "signal": "regional_exclusion",
-          "source": "location",
-          "text": "us only"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        },
-        {
-          "skill": "PostgreSQL",
-          "matched_as": "postgres"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 6.00912,
-      "keyword_baseline_score": 4,
-      "compensation": "Unknown",
-      "published_at": "2026-11-21T05:00:05+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
-      "discovery_source": "Remote OK",
-      "source_credit": "Remote OK",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Remote OK"
-      ]
-    },
-    {
-      "company": "Reddit",
-      "official_website": null,
-      "title": "Principal Software Engineer, Infrastructure",
-      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-principal-software-engineer-infrastructure-reddit-1137945",
-      "direct_application_url": null,
-      "work_location": "US Only",
-      "india_eligibility": "excluded",
-      "eligibility_evidence": [
-        {
-          "signal": "regional_exclusion",
-          "source": "location",
-          "text": "us only"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        },
-        {
-          "skill": "AWS",
-          "matched_as": "aws"
-        }
-      ],
-      "relevance_score": 5.67624,
-      "keyword_baseline_score": 4,
-      "compensation": "Unknown",
-      "published_at": "2026-11-21T04:40:06+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3254,7 +5301,110 @@
       "keyword_baseline_score": 4,
       "compensation": "Unknown",
       "published_at": "2026-11-21T09:40:06+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "*Software Engineer — Remote — US Only* - US Work Authorization Required",
+      "official_website": null,
+      "title": "*Software Engineer — Remote — US Only* - US Work Authorization Required",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50344339",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Unknown",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "title",
+          "text": "us only"
+        },
+        {
+          "signal": "regional_exclusion",
+          "source": "description",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "Node.js",
+          "matched_as": "node"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 5.13619,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-02T21:50:51+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "*Software Engineer — Remote — US Only* - US Work Authorization Required",
+        "source_comment_id": "50344339"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Engineering Manager, Ranking Platform",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-engineering-manager-ranking-platform-reddit-1137946",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "PostgreSQL",
+          "matched_as": "postgres"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 5.00729,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T05:00:05+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3296,7 +5446,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-21T05:20:05+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3338,7 +5488,49 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-23T09:20:04+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Principal Software Engineer, Infrastructure",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-principal-software-engineer-infrastructure-reddit-1137945",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        },
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        },
+        {
+          "skill": "AWS",
+          "matched_as": "aws"
+        }
+      ],
+      "relevance_score": 4.00732,
+      "keyword_baseline_score": 4,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T04:40:06+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3380,49 +5572,7 @@
       "keyword_baseline_score": 3,
       "compensation": "Unknown",
       "published_at": "2026-11-23T09:40:04+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
-      "discovery_source": "Remote OK",
-      "source_credit": "Remote OK",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Remote OK"
-      ]
-    },
-    {
-      "company": "Reddit",
-      "official_website": null,
-      "title": "Senior SRE, Site Experience",
-      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-sre-site-experience-reddit-1137975",
-      "direct_application_url": null,
-      "work_location": "US Only",
-      "india_eligibility": "excluded",
-      "eligibility_evidence": [
-        {
-          "signal": "regional_exclusion",
-          "source": "location",
-          "text": "us only"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
-          "skill": "Python",
-          "matched_as": "python"
-        },
-        {
-          "skill": "Kubernetes",
-          "matched_as": "kubernetes"
-        }
-      ],
-      "relevance_score": 4.0065,
-      "keyword_baseline_score": 3,
-      "compensation": "Unknown",
-      "published_at": "2026-11-22T01:40:06+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3465,7 +5615,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-22T01:00:07+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3503,7 +5653,7 @@
       "keyword_baseline_score": 2,
       "compensation": "Unknown",
       "published_at": "2026-11-20T07:40:14+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3513,10 +5663,61 @@
       ]
     },
     {
-      "company": "Clover Health",
+      "company": "Marker Learning",
       "official_website": null,
-      "title": "Senior Software Engineer",
-      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-clover-health-1137871",
+      "title": "Senior Full-Stack Engineer (Frontend-Leaning)",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50350981",
+      "direct_application_url": null,
+      "candidate_application_urls": [
+        "https://www.markerlearning.com"
+      ],
+      "work_location": "Full-time | Remote, US only | $180k–$200k | https://www.markerlearning.com",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        },
+        {
+          "signal": "regional_exclusion",
+          "source": "description",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "TypeScript",
+          "matched_as": "typescript"
+        },
+        {
+          "skill": "React",
+          "matched_as": "react"
+        }
+      ],
+      "relevance_score": 3.03046,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T12:07:36+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Marker Learning | Senior Full-Stack Engineer (Frontend-Leaning) | Full-time | Remote, US only | $180k–$200k | https://www.markerlearning.com",
+        "source_comment_id": "50350981"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
+      ]
+    },
+    {
+      "company": "Reddit",
+      "official_website": null,
+      "title": "Senior SRE, Site Experience",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-sre-site-experience-reddit-1137975",
       "direct_application_url": null,
       "work_location": "US Only",
       "india_eligibility": "excluded",
@@ -3529,57 +5730,19 @@
       ],
       "technical_matches": [
         {
-          "skill": "Go",
-          "matched_as": "go"
-        },
-        {
           "skill": "Python",
           "matched_as": "python"
-        }
-      ],
-      "relevance_score": 3.00513,
-      "keyword_baseline_score": 2,
-      "compensation": "Unknown",
-      "published_at": "2026-11-20T01:30:14+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
-      "discovery_source": "Remote OK",
-      "source_credit": "Remote OK",
-      "source_status": "present in current public provider feed; not independently verified with employer",
-      "official_employer_application_verified": false,
-      "also_seen_in": [
-        "Remote OK"
-      ]
-    },
-    {
-      "company": "Honeycomb.io",
-      "official_website": null,
-      "title": "Senior Software Engineer II - Agentic Intelligence",
-      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-ii-agentic-intelligence-honeycomb-io-1137924",
-      "direct_application_url": null,
-      "work_location": "Canada Only",
-      "india_eligibility": "excluded",
-      "eligibility_evidence": [
-        {
-          "signal": "regional_exclusion",
-          "source": "location",
-          "text": "canada only"
-        }
-      ],
-      "technical_matches": [
-        {
-          "skill": "Go",
-          "matched_as": "go"
         },
         {
           "skill": "Kubernetes",
           "matched_as": "kubernetes"
         }
       ],
-      "relevance_score": 3.00437,
-      "keyword_baseline_score": 2,
+      "relevance_score": 3.00434,
+      "keyword_baseline_score": 3,
       "compensation": "Unknown",
-      "published_at": "2026-11-21T01:20:20+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "published_at": "2026-11-22T01:40:06+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3613,7 +5776,41 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-21T10:00:05+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Clover Health",
+      "official_website": null,
+      "title": "Senior Software Engineer",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-clover-health-1137871",
+      "direct_application_url": null,
+      "work_location": "US Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "us only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Python",
+          "matched_as": "python"
+        }
+      ],
+      "relevance_score": 2.00256,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-20T01:30:14+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3647,7 +5844,41 @@
       "keyword_baseline_score": 1,
       "compensation": "Unknown",
       "published_at": "2026-11-22T01:40:05+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
+      "discovery_source": "Remote OK",
+      "source_credit": "Remote OK",
+      "source_status": "present in current public provider feed; not independently verified with employer",
+      "official_employer_application_verified": false,
+      "also_seen_in": [
+        "Remote OK"
+      ]
+    },
+    {
+      "company": "Honeycomb.io",
+      "official_website": null,
+      "title": "Senior Software Engineer II - Agentic Intelligence",
+      "source_listing_url": "https://remoteOK.com/remote-jobs/remote-senior-software-engineer-ii-agentic-intelligence-honeycomb-io-1137924",
+      "direct_application_url": null,
+      "work_location": "Canada Only",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [
+        {
+          "signal": "regional_exclusion",
+          "source": "location",
+          "text": "canada only"
+        }
+      ],
+      "technical_matches": [
+        {
+          "skill": "Kubernetes",
+          "matched_as": "kubernetes"
+        }
+      ],
+      "relevance_score": 2.00219,
+      "keyword_baseline_score": 2,
+      "compensation": "Unknown",
+      "published_at": "2026-11-21T01:20:20+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3676,7 +5907,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-21T09:40:04+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3705,7 +5936,7 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-20T01:45:13+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
@@ -3739,13 +5970,42 @@
       "keyword_baseline_score": 0,
       "compensation": "Unknown",
       "published_at": "2026-11-21T04:00:04+00:00",
-      "observed_at": "2026-11-24T18:12:34.524953+00:00",
+      "observed_at": "2026-11-24T18:38:51.964410+00:00",
       "discovery_source": "Remote OK",
       "source_credit": "Remote OK",
       "source_status": "present in current public provider feed; not independently verified with employer",
       "official_employer_application_verified": false,
       "also_seen_in": [
         "Remote OK"
+      ]
+    },
+    {
+      "company": "Telescope Partners",
+      "official_website": null,
+      "title": "Software Engineer & Data Scientist",
+      "source_listing_url": "https://news.ycombinator.com/item?id=50346665",
+      "direct_application_url": null,
+      "candidate_application_urls": [],
+      "work_location": "Remote - AMERICAS ONLY | Full-time",
+      "india_eligibility": "excluded",
+      "eligibility_evidence": [],
+      "technical_matches": [],
+      "relevance_score": 1.0,
+      "keyword_baseline_score": 0,
+      "compensation": "Unknown",
+      "published_at": "2026-11-03T01:08:34+00:00",
+      "observed_at": "2026-11-24T18:38:44.773049+00:00",
+      "discovery_source": "Hacker News Who is Hiring",
+      "source_credit": "Hacker News / Algolia",
+      "source_status": "public employer-submitted hiring-thread lead; not independently verified against employer",
+      "official_employer_application_verified": false,
+      "thread_url": "https://news.ycombinator.com/item?id=50338728",
+      "source_evidence": {
+        "header": "Telescope Partners | Software Engineer & Data Scientist | Remote - AMERICAS ONLY | Full-time",
+        "source_comment_id": "50346665"
+      },
+      "also_seen_in": [
+        "Hacker News Who is Hiring"
       ]
     }
   ]

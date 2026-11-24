@@ -5,7 +5,7 @@ from collections import Counter
 
 
 TECH_ALIASES = {
-    "python": ("python",), "go": ("go", "golang"), "typescript": ("typescript", "ts"),
+    "python": ("python",), "go": ("golang", "go language", "go programming", "go"), "typescript": ("typescript", "ts"),
     "node.js": ("node.js", "nodejs", "node"), "react": ("react", "react.js", "reactjs"),
     "kubernetes": ("kubernetes", "k8s"), "postgresql": ("postgresql", "postgres", "pgsql"),
     "aws": ("aws", "amazon web services"), "devops": ("devops", "site reliability", "sre", "platform engineering"),
@@ -41,6 +41,11 @@ def score_job(job, skills, *, k1=1.5, b=0.75):
             for variant in variants:
                 if not variant:
                     continue
+                # Avoid matching the ordinary verb "go" in prose. The bare
+                # token is accepted only in an explicit technical job title.
+                if canonical == "go" and variant == "go":
+                    if text != title or not re.search(r"\bgo\s+(?:developer|engineer|programmer)\b", title, re.I):
+                        continue
                 pattern = re.compile(r"(?<!\w)" + re.escape(variant) + r"(?!\w)", re.I)
                 if pattern.search(low):
                     term_count = sum(counts.get(t, 0) for t in _tokens(variant))

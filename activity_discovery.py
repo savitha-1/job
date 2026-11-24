@@ -43,7 +43,9 @@ def _ingest_stream(stream, *, max_bytes, max_events, store, orgs):
             continue
         events += 1
         repo = row.get("repo") or {}
-        owner = (row.get("org") or {}).get("login") or str(repo.get("name", "")).split("/", 1)[0]
+        # Repository owners are often individual developers. Only an explicit
+        # GH Archive organization object should enter employer resolution.
+        owner = (row.get("org") or {}).get("login")
         if not owner or not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}", owner):
             continue
         item = orgs[owner.lower()]
@@ -52,19 +54,20 @@ def _ingest_stream(stream, *, max_bytes, max_events, store, orgs):
             item["repositories"].add(repo["name"])
         payload = " ".join(str(row.get(k, "")) for k in ("type", "created_at"))
         detail = row.get("payload") or {}
-        payload += " " + " ".join(str(detail.get(k, ""))[:1000] for k in ("title", "body", "description"))
-        payload += " " + " ".join(str(commit.get("message", ""))[:200] for commit in (detail.get("commits") or [])[:10] if isinstance(commit, dict))
+        announcement = " ".join(str(detail.get(k, ""))[:1000] for k in ("title", "body") if isinstance(detail.get(k, ""), str))
+        payload += " " + announcement
+        technology_context = payload + " " + " ".join(str(commit.get("message", ""))[:200] for commit in (detail.get("commits") or [])[:10] if isinstance(commit, dict))
         for tech in TECH:
-            if re.search(r"(?<!\w)" + re.escape(tech) + r"(?!\w)", payload, re.I):
+            if re.search(r"(?<!\w)" + re.escape(tech) + r"(?!\w)", technology_context, re.I):
                 item["technologies"][tech] += 1
-        if HIRING.search(payload):
+        if row.get("type") in ("IssuesEvent", "IssueCommentEvent", "PullRequestEvent") and HIRING.search(announcement):
             item["hiring_signals"] += 1
         url = "https://github.com/" + str(repo.get("name", owner)).strip("/")
         if len(item["evidence"]) < 5:
             item["evidence"].append({"url": url, "kind": "github_public_activity", "event_type": str(row.get("type", "unknown"))})
     leads = []
     for owner, item in sorted(orgs.items()):
-        lead = {"organization": owner, "candidate_domain": "github.com", "verified_employer": False, "event_count": item["events"], "repositories": sorted(item["repositories"]), "technologies": dict(item["technologies"]), "hiring_signals": item["hiring_signals"], "evidence": item["evidence"]}
+        lead = {"organization": owner, "github_identity_type": "organization", "candidate_domain": "github.com", "verified_employer": False, "event_count": item["events"], "repositories": sorted(item["repositories"]), "technologies": dict(item["technologies"]), "hiring_signals": item["hiring_signals"], "evidence": item["evidence"]}
         leads.append(lead)
         if store:
             store.save_company_lead(lead, "gharchive")
