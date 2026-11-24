@@ -9,6 +9,7 @@ import sys
 import urllib.request
 from urllib.parse import urlsplit
 from engine import rank
+from network_guard import PublicHTTPSProxy, build_public_opener
 
 ENDPOINTS = {
     "greenhouse": "https://boards-api.greenhouse.io/v1/boards/{}/jobs?content=true",
@@ -48,11 +49,12 @@ def normalize(source, board, data):
 def fetch(source, board):
     url = endpoint(source, board)
     req = urllib.request.Request(url, headers={"User-Agent":"OpportunityResearch/0.1", "Accept":"application/json"})
-    with urllib.request.urlopen(req, timeout=20) as response:
-        body = response.read(32*1024*1024+1)
-        if len(body)>32*1024*1024:
-            raise ValueError("response exceeds size limit")
-        return normalize(source,board,json.loads(body))
+    with PublicHTTPSProxy() as proxy:
+        with build_public_opener(proxy.url).open(req, timeout=20) as response:
+            body = response.read(32*1024*1024+1)
+            if len(body)>32*1024*1024:
+                raise ValueError("response exceeds size limit")
+            return normalize(source,board,json.loads(body))
 
 def discover(boards, workers=4):
     jobs, errors = [], []

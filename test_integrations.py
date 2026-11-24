@@ -8,6 +8,7 @@ from activity_discovery import ingest_events
 from discovery_state import DiscoveryStore
 from gmail_tracking import correlate_confirmations, sync_confirmations
 from ledger import Ledger
+from network_guard import origin, resolve_public
 from web_evidence import inspect_html
 
 
@@ -61,6 +62,14 @@ class IntegrationTests(unittest.TestCase):
             self.assertTrue(store.reserve_host_request("example.com", max_requests=2))
             self.assertTrue(store.reserve_host_request("example.com", max_requests=2))
             self.assertFalse(store.reserve_host_request("example.com", max_requests=2))
+
+    def test_network_guard_rejects_private_dns_and_normalizes_origins(self):
+        private_resolver = lambda *args, **kwargs: [(2, 1, 6, "", ("127.0.0.1", 443))]
+        with self.assertRaises(PermissionError):
+            resolve_public("internal.example", resolver=private_resolver)
+        public_resolver = lambda *args, **kwargs: [(2, 1, 6, "", ("8.8.8.8", 443))]
+        self.assertEqual(resolve_public("public.example", resolver=public_resolver)[0][4][0], "8.8.8.8")
+        self.assertEqual(origin("https://Example.com/path"), "https://example.com:443")
 
 
 if __name__ == "__main__":

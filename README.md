@@ -30,9 +30,28 @@ result = explore_sync(["https://example.org/careers"], store=store,
                       max_pages=20, max_depth=2, per_host=4, delay=1.0)
 ```
 
-The explorer checks `robots.txt`, limits visits and same-origin resources, stores a prioritized frontier and state graph, and stops at login/CAPTCHA/access gates. DNS is not pinned, so use only with trusted public targets and do not expose it as a service.
+The explorer checks `robots.txt`, limits visits and same-origin resources, stores a prioritized frontier and state graph, and stops at login/CAPTCHA/access gates. Public requests use a loopback HTTPS proxy that pins DNS resolution to public IPs; browser contexts permit only the active origin and GET/HEAD requests. This is still a local tool, not a multi-tenant service.
 
-For a read-only mailbox integration, construct `GmailReadOnlyMailbox` only after obtaining an OAuth access token with Gmail read-only scope. Tokens and message content are not written to disk. The fake mailbox is used in tests.
+Application preparation can be attached to a durable review workflow:
+
+```python
+from application_workflow import ApplicationWorkflow
+from form_assistant import prepare_form
+
+workflow = ApplicationWorkflow("data/applications.sqlite")
+workflow_id = workflow.create(
+    "https://jobs.example/apply/role-123", "Example Inc", "2026-11-24"
+)
+packet = await prepare_form(
+    "https://jobs.example/apply/role-123", candidate_profile,
+    dry_run=True, workflow=workflow, workflow_id=workflow_id,
+)
+pending_human_review = workflow.approval_queue(workflow_id)
+```
+
+The workflow stores review steps and explicitly approved reusable answers locally, enforces one opportunity per employer per batch, and recovers interrupted preparation/submission states. `paused` and `stopped` controls gate browser preparation. There is no submit adapter; no command or workflow state sends an application. Keep candidate profile and resume files outside Git.
+
+For read-only mailbox confirmation tracking, construct `GmailReadOnlyMailbox` only after obtaining an OAuth access token with Gmail read-only scope. Tokens and message content are not written to disk. The fake mailbox is used in tests; no mailbox was accessed during verification.
 
 ## Verification
 

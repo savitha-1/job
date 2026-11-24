@@ -6,15 +6,14 @@ the crawl and are recorded as human checkpoints.
 """
 import asyncio
 import hashlib
-import ipaddress
 import re
 import time
 import urllib.robotparser
-from collections import deque
-from urllib.parse import urldefrag, urljoin, urlsplit
-from urllib.request import Request, urlopen
+from urllib.parse import urldefrag, urlsplit
+from urllib.request import Request
 
 from archive_discovery import classify
+from network_guard import PublicHTTPSProxy, build_public_opener, origin, public_url
 from web_evidence import inspect_html
 
 RESTRICTED = re.compile(r"captcha|verify (?:that )?you are human|unusual traffic|access denied|sign in to continue|log in to continue", re.I)
@@ -44,7 +43,7 @@ def fingerprint_distance(left, right):
     return sum(a != b for a, b in zip(left, right))
 
 
-def _allowed_by_robots(url, user_agent, cache):
+def _allowed_by_robots(url, user_agent, cache, proxy_url=None):
     p = urlsplit(url)
     if p.hostname in ("127.0.0.1", "localhost", "::1"):
         return True
@@ -54,7 +53,8 @@ def _allowed_by_robots(url, user_agent, cache):
         parser.set_url(origin + "/robots.txt")
         try:
             request = Request(parser.url, headers={"User-Agent": user_agent})
-            with urlopen(request, timeout=5) as response:
+            opener = build_public_opener(proxy_url)
+            with opener.open(request, timeout=5) as response:
                 parser.parse(response.read(256_000).decode("utf-8", "replace").splitlines())
         except Exception:
             # Fail closed when robots policy cannot be read.
@@ -65,16 +65,12 @@ def _allowed_by_robots(url, user_agent, cache):
 
 def _url_allowed(url, fixture=False):
     p = urlsplit(url)
-    if not ((p.scheme == "https" or (fixture and p.scheme == "http" and p.hostname in ("127.0.0.1", "localhost", "::1"))) and p.hostname and not p.username and not p.password):
-        return False
-    try:
-        address = ipaddress.ip_address(p.hostname)
-    except ValueError:
+    if fixture and p.scheme == "http" and p.hostname in ("127.0.0.1", "localhost", "::1") and not p.username and not p.password:
         return True
-    return (fixture and address.is_loopback) or address.is_global
+    return public_url(url)
 
 
-async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False):
+async def _explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False, proxy_url=None):
     """Explore public sites by prioritized links; returns pages, edges, checkpoints."""
     try:
         from playwright.async_api import async_playwright
@@ -92,10 +88,18 @@ async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, dela
     robots, pages, edges, checkpoints = {}, [], [], []
     exhausted_hosts = set()
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(headless=True, proxy={"server": proxy_url} if proxy_url else None, args=["--disable-quic", "--disable-background-networking", "--disable-component-update", "--dns-prefetch-disable", "--disable-features=AsyncDns,DnsOverHttps"] if proxy_url else [])
         context = await browser.new_context(user_agent=user_agent, service_workers="block")
         page = await context.new_page()
         page.set_default_navigation_timeout(timeout_ms)
+        active_origin = None
+        async def guard(route):
+            target = route.request.url
+            if route.request.method in ("GET", "HEAD") and _url_allowed(target, fixture) and origin(target) == active_origin:
+                await route.continue_()
+            else:
+                await route.abort("blockedbyclient")
+        await context.route("**/*", guard)
         if store:
             store.recover_frontier()
             for priority, depth, seed, parent in queue:
@@ -133,7 +137,7 @@ async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, dela
                     store.defer(url)
                     exhausted_hosts.add(host)
                     continue
-                if not _allowed_by_robots(url, user_agent, robots):
+                if not _allowed_by_robots(url, user_agent, robots, proxy_url):
                     checkpoints.append({"url": url, "reason": "robots_disallow"})
                     if store:
                         store.finish(url, True)
@@ -144,17 +148,7 @@ async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, dela
                 last_host[host] = time.monotonic()
                 host_count[host] = host_count.get(host, 0) + 1
                 try:
-                    page_host = urlsplit(url).hostname.lower()
-                    async def guard(route):
-                        target = urlsplit(route.request.url)
-                        # Same-origin resources only; this bounds third-party
-                        # requests and prevents a page from probing local hosts.
-                        if _url_allowed(route.request.url, fixture) and target.hostname.lower() == page_host:
-                            await route.continue_()
-                        else:
-                            await route.abort("blockedbyclient")
-                    await page.unroute("**/*")
-                    await page.route("**/*", guard)
+                    active_origin = origin(url)
                     response = await page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
                     if response is None:
                         continue
@@ -229,3 +223,10 @@ async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, dela
 
 def explore_sync(*args, **kwargs):
     return asyncio.run(explore(*args, **kwargs))
+
+
+async def explore(seeds, store=None, max_pages=50, max_depth=2, per_host=5, delay=0.5, timeout_ms=15000, fixture=False):
+    if fixture:
+        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, fixture=True)
+    with PublicHTTPSProxy() as proxy:
+        return await _explore(seeds, store, max_pages, max_depth, per_host, delay, timeout_ms, proxy_url=proxy.url)

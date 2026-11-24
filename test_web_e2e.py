@@ -12,6 +12,8 @@ from web_crawler import explore, fingerprint_distance
 
 
 class FixtureHandler(BaseHTTPRequestHandler):
+    post_requests = 0
+
     def do_GET(self):
         pages = {
             "/": """<html><title>Acme</title><body><h1>Acme builds developer tools</h1><script>setTimeout(()=>{let a=document.createElement('a');a.href='/careers';a.textContent='Careers';document.body.append(a)},30)</script></body></html>""",
@@ -19,6 +21,9 @@ class FixtureHandler(BaseHTTPRequestHandler):
             "/jobs/backend": """<html><title>Backend Engineer</title><body>Remote worldwide backend role. Go Python Kubernetes</body></html>""",
             "/captcha": """<html><title>Verify you are human</title><body>Please complete CAPTCHA</body></html>""",
             "/form": """<html><body><form><label>First name<input name='first' required></label><label>Email<input name='email' type='email' required></label><label>Resume<input name='resume' type='file' required></label><label>Visa sponsorship<input name='visa' required></label><button type='submit'>Apply</button></form></body></html>""",
+            "/multi": """<html><body><form><label>First name<input name='first' required></label><a href='/multi2'>Continue</a></form></body></html>""",
+            "/multi2": """<html><body><form><label>Last name<input name='last' required></label><button type='submit'>Apply</button></form></body></html>""",
+            "/side-effect": """<html><body><button type='button' onclick=\"this.disabled=true;fetch('/submit',{method:'POST',body:'candidate-data'})\">Continue</button></body></html>""",
             "/robots.txt": "User-agent: *\nAllow: /\n",
         }
         body = pages.get(self.path, "not found").encode()
@@ -27,6 +32,11 @@ class FixtureHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def do_POST(self):
+        type(self).post_requests += 1
+        self.send_response(200)
+        self.end_headers()
 
     def log_message(self, *args):
         pass
@@ -75,6 +85,52 @@ class BrowserFixtureTests(unittest.IsolatedAsyncioTestCase):
         result = await prepare_form("https://example.com/apply", {}, dry_run=False)
         self.assertEqual(result["review"][0]["reason"], "automation_permission_not_confirmed")
         self.assertFalse(result["submission_authorized"])
+
+    async def test_persistent_multistep_preparation_never_submits(self):
+        from application_workflow import ApplicationWorkflow
+        with tempfile.TemporaryDirectory() as directory:
+            workflow = ApplicationWorkflow(Path(directory) / "private" / "apps.sqlite")
+            url = self.origin + "/multi"
+            workflow_id = workflow.create(url, "Acme", "fixture-batch", automation_permitted=True)
+            profile = {"facts": {
+                "first_name": {"value": "Ada", "approved": True},
+                "last_name": {"value": "Lovelace", "approved": True},
+            }}
+            result = await prepare_form(url, profile, dry_run=False, fixture=True,
+                                        automation_permitted=True, workflow=workflow,
+                                        workflow_id=workflow_id)
+            self.assertEqual(len(result["steps"]), 2)
+            self.assertEqual(len(result["completed"]), 2)
+            self.assertTrue(result["ready"])
+            self.assertFalse(result["submission_authorized"])
+            self.assertEqual(workflow.get(workflow_id)["state"], "ready")
+            self.assertEqual(workflow.get(workflow_id)["current_step"], 1)
+
+    async def test_form_navigation_cannot_send_post_side_effects(self):
+        FixtureHandler.post_requests = 0
+        result = await prepare_form(self.origin + "/side-effect", {}, dry_run=False,
+                                    fixture=True, automation_permitted=True)
+        self.assertTrue(result["ready"], result)
+        self.assertEqual(FixtureHandler.post_requests, 0)
+        self.assertFalse(result["submission_authorized"])
+
+    async def test_persistent_workflow_pause_and_stop_controls_gate_browser(self):
+        from application_workflow import ApplicationWorkflow
+        with tempfile.TemporaryDirectory() as directory:
+            workflow = ApplicationWorkflow(Path(directory) / "apps.sqlite")
+            url = self.origin + "/multi"
+            workflow_id = workflow.create(url, "Acme", "control-batch")
+            workflow.set_control("paused", True)
+            paused = await prepare_form(url, {}, dry_run=False, fixture=True,
+                                       automation_permitted=True, workflow=workflow,
+                                       workflow_id=workflow_id)
+            self.assertEqual(paused["review"][0]["reason"], "workflow_paused")
+            workflow.set_control("paused", False)
+            workflow.set_control("stopped", True)
+            stopped = await prepare_form(url, {}, dry_run=False, fixture=True,
+                                         automation_permitted=True, workflow=workflow,
+                                         workflow_id=workflow_id)
+            self.assertEqual(stopped["review"][0]["reason"], "workflow_stopped")
 
 
 if __name__ == "__main__":

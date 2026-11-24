@@ -7,6 +7,7 @@ import json
 import urllib.parse
 import urllib.request
 from urllib.parse import urlsplit
+from network_guard import PublicHTTPSProxy, build_public_opener
 
 
 class GmailReadOnlyMailbox:
@@ -29,8 +30,12 @@ class GmailReadOnlyMailbox:
 
     def _get(self, url):
         req = urllib.request.Request(url, headers={"Authorization": "Bearer " + self._token, "Accept": "application/json"})
-        with urllib.request.urlopen(req, timeout=15) as response:
-            return json.loads(response.read(2 * 1024 * 1024 + 1))
+        with PublicHTTPSProxy() as proxy:
+            with build_public_opener(proxy.url).open(req, timeout=15) as response:
+                data = response.read(2 * 1024 * 1024 + 1)
+                if len(data) > 2 * 1024 * 1024:
+                    raise ValueError("Gmail response exceeds size limit")
+                return json.loads(data)
 
 
 def correlate_confirmations(mailbox, applications, *, limit=100):

@@ -5,6 +5,7 @@ import re
 from collections import defaultdict
 from urllib.parse import urlsplit, urlencode
 from urllib.request import Request, urlopen
+from network_guard import PublicHTTPSProxy, build_public_opener
 
 CAREER = re.compile(r"(?:^|[/. _-])(careers?|jobs?|join-us|work-with-us|open-positions|vacancies)(?:$|[/. _-])", re.I)
 def classify(url):
@@ -30,11 +31,12 @@ def aggregate(records):
     return [{"host":h,"evidence":sorted(v.values(),key=lambda x:x["url"]),"live_verified":False} for h,v in sorted(companies.items())]
 
 def get(url):
-    with urlopen(Request(url,headers={"User-Agent":"OpportunityResearch/0.1 (public archive research)"}),timeout=30) as r:
-        data=r.read(16*1024*1024+1)
-        if len(data)>16*1024*1024:
-            raise ValueError("archive response too large")
-        return data.decode("utf-8")
+    with PublicHTTPSProxy() as proxy:
+        with build_public_opener(proxy.url).open(Request(url,headers={"User-Agent":"OpportunityResearch/0.1 (public archive research)"}),timeout=30) as r:
+            data=r.read(16*1024*1024+1)
+            if len(data)>16*1024*1024:
+                raise ValueError("archive response too large")
+            return data.decode("utf-8")
 
 def archive(domain, index):
     if not re.fullmatch(r"[a-zA-Z0-9.-]+",domain) or not re.fullmatch(r"CC-MAIN-\d{4}-\d{2}",index):

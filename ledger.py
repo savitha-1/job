@@ -14,19 +14,23 @@ class Ledger:
     def __init__(self,path):
         self.path=path
         with closing(self.connect()) as db:
+            db.execute("PRAGMA journal_mode=WAL")
             db.execute("CREATE TABLE IF NOT EXISTS applications (url TEXT PRIMARY KEY, employer TEXT NOT NULL, state TEXT NOT NULL, updated TEXT NOT NULL, evidence TEXT, batch TEXT NOT NULL DEFAULT '')")
             columns={row[1] for row in db.execute("PRAGMA table_info(applications)")}
             if "batch" not in columns:
                 db.execute("ALTER TABLE applications ADD COLUMN batch TEXT NOT NULL DEFAULT ''")
             db.commit()
     def connect(self):
-        return sqlite3.connect(self.path,timeout=10)
+        db=sqlite3.connect(self.path,timeout=15)
+        db.execute("PRAGMA busy_timeout=15000")
+        return db
     def enqueue(self,url,employer,batch_id=None):
         if not employer.strip():
             raise ValueError("employer required")
         employer=employer.strip().casefold()
         batch_id=batch_id or datetime.now(timezone.utc).date().isoformat()
         with closing(self.connect()) as db, db:
+            db.execute("BEGIN IMMEDIATE")
             existing=db.execute("SELECT url FROM applications WHERE employer=? AND batch=? AND state NOT IN ('rejected')",(employer,batch_id)).fetchone()
             if existing and canonical(url)!=existing[0]:
                 return False

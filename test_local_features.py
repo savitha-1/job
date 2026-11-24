@@ -73,6 +73,22 @@ class LocalFeatureTests(unittest.TestCase):
         self.assertFalse(result["submission_authorized"])
         self.assertEqual(result["actions"][0]["profile_key"], "first_name")
 
+    def test_planner_maps_explicit_select_radio_checkbox_and_holds_unknown_sensitive(self):
+        fields = [
+            {"id": "country", "label": "Country", "type": "select-one", "required": True,
+             "options": [{"value": "IN", "label": "India"}]},
+            {"id": "sponsorship", "label": "Work authorization", "type": "radio", "required": True,
+             "options": [{"value": "yes", "label": "Yes"}, {"value": "no", "label": "No"}], "approved_value": "no"},
+            {"id": "relocate", "label": "Relocation preference", "type": "checkbox", "required": False,
+             "approved_value": False},
+            {"id": "visa", "label": "Visa sponsorship required?", "type": "text", "required": True},
+        ]
+        result = plan(fields, {"country": "India"})
+        self.assertEqual([a["operation"] for a in result["actions"]], ["select", "check", "uncheck"])
+        self.assertEqual(result["actions"][0]["value"], "IN")
+        self.assertFalse(result["ready"])
+        self.assertEqual(result["review"], [{"id": "visa", "reason": "unresolved field"}])
+
     def test_ledger_enforces_one_open_opportunity_per_employer_per_batch(self):
         with tempfile.TemporaryDirectory() as d:
             ledger = Ledger(Path(d) / "apps.sqlite")
